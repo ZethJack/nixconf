@@ -55,8 +55,10 @@
   services.xserver = {
     enable = true;
     videoDrivers = ["nvidia"];
-    layout = "cz";
-    xkbVariant = "";
+    xkb = {
+      layout = "cz";
+      variant = "";
+    };
     libinput.enable = true;
   };
 
