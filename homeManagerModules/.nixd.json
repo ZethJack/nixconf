@@ -3,7 +3,7 @@
         "enable": true,
         "target": {
             "args": [],
-            "installable": "../#homeConfigurations.yurii@work.options"
+            "installable": "../#homeConfigurations.zeth@work.options"
         }
     }
 }

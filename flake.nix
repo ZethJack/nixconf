@@ -3,7 +3,7 @@
   # =                           WELCOME!                           = #
   # ================================================================ #
 
-  description = "Yurii's NixOS configuration";
+  description = "Zeth's NixOS configuration forked from goxore/nixconf";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -73,6 +73,7 @@
 
         laptop = mkSystem ./hosts/laptop/configuration.nix;
         work = mkSystem ./hosts/work/configuration.nix;
+        hashbrown = mkSystem ./hosts/hashbrown/configuration.nix;
         vps = mkSystem ./hosts/vps/configuration.nix;
         liveiso = mkSystem ./hosts/liveiso/configuration.nix;
       };
@@ -80,13 +81,13 @@
       homeConfigurations = {
         # ================ Maintained home configurations ================ #
 
-        "yurii@laptop" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
-        "yurii@work" = mkHome "x86_64-linux" ./hosts/work/home.nix;
+        "zeth@potatOS" = mkHome "x86_64-linux" ./hosts/potatOS/home.nix;
+        "zeth@hashbrown" = mkHome "x86_64-linux" ./hosts/hashbrown/home.nix;
 
         # ========================= Discontinued ========================= #
         # This one doesn't work. Left it in case I ever want to use it again
 
-        "yurii@osxvm" = mkHome "x86_64-darwin" ./hosts/osxvm/home.nix;
+        # "yurii@osxvm" = mkHome "x86_64-darwin" ./hosts/osxvm/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;

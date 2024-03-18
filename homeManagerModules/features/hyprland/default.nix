@@ -105,10 +105,10 @@ in {
         ];
 
         input = {
-          kb_layout = "us,ru,ua";
+          kb_layout = "cz";
           kb_variant = "";
           kb_model = "";
-          kb_options = "grp:alt_shift_toggle,caps:escape";
+          kb_options = "";
 
           kb_rules = "";
 
@@ -209,7 +209,7 @@ in {
             "$mainMod, G, togglegroup,"
             "$mainMod, bracketleft, changegroupactive, b"
             "$mainMod, bracketright, changegroupactive, f"
-            "$mainMod, O, exec, wofi --show drun"
+            "$mainMod, D, exec, wofi --show drun"
             "$mainMod, S, exec, rofi -show drun -show-icons"
             "$mainMod, P, pin, active"
 

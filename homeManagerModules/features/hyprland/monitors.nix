@@ -15,7 +15,7 @@ in rec {
         };
         primary = mkOption {
           type = types.bool;
-          default = false;
+          default = true;
         };
         width = mkOption {
           type = types.int;
