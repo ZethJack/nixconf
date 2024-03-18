@@ -3,7 +3,6 @@
   config,
   lib,
   inputs,
-  outputs,
   ...
 }: {
   imports = [
@@ -11,11 +10,6 @@
   ];
 
   nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
     config = {
       allowUnfree = true;
       experimental-features = "nix-command flakes";
@@ -75,7 +69,7 @@
     
     yt-dlp
     tree-sitter
-    unstable.brave
+    brave
 
     nh
   ];
