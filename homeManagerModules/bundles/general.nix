@@ -61,8 +61,15 @@
     ffmpeg
     wget
 
+    (pass.withExtensions (exts: with exts; [
+      pass-otp
+    ]))
+    pass
+    unstable.wofi-pass
+    
     yt-dlp
     tree-sitter
+    unstable.brave
 
     nh
   ];
