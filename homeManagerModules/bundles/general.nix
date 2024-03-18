@@ -65,7 +65,7 @@
       pass-otp
     ]))
     pass
-    unstable.wofi-pass
+    wofi-pass
     
     yt-dlp
     tree-sitter
