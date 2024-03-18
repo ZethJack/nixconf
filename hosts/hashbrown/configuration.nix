@@ -11,7 +11,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../nixosModules/features/greetd/greetd.nix
+    ../../nixosModules/features/greetd/default.nix
   ];
 
   myNixOS = {
