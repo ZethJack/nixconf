@@ -11,6 +11,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../nixosModules/features/greetd/greetd.nix
   ];
 
   myNixOS = {
@@ -60,6 +61,12 @@
       variant = "";
     };
     libinput.enable = true;
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "gtk2";
+    enableSSHSupport = true;
   };
 
   hardware = {
