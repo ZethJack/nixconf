@@ -145,7 +145,7 @@ in {
   '';
 
   programs.zsh.envExtra = ''
-    export EDITOR="nvim"
+    export EDITOR="hx"
     export TERMINAL="alacritty"
     export TERM="alacritty"
     export BROWSER="firefox"
