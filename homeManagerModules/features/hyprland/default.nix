@@ -111,11 +111,13 @@ in {
           kb_options = "";
 
           kb_rules = "";
+	  numlock_by_default = true;
 
           follow_mouse = 1;
 
           touchpad = {
             natural_scroll = false;
+	  
           };
 
           repeat_rate = 40;
@@ -228,20 +230,43 @@ in {
             "$mainMod SHIFT, k, movewindow, u"
             "$mainMod SHIFT, j, movewindow, d"
 
+            "$mainMod, plus, workspace, 1"
+            "$mainMod, ecaron, workspace, 2"
+            "$mainMod, scaron, workspace, 3"
+            "$mainMod, ccaron, workspace, 4"
+            "$mainMod, rcaron, workspace, 5"
+            "$mainMod, zcaron, workspace, 6"
+            "$mainMod, yacute, workspace, 7"
+            "$mainMod, aacute, workspace, 8"
+            "$mainMod, iacute, workspace, 9"
+            "$mainMod, eacute, workspace, 10"
+
+            "$mainMod SHIFT, plus,   movetoworkspace, 1"
+            "$mainMod SHIFT, ecaron, movetoworkspace, 2"
+            "$mainMod SHIFT, scaron, movetoworkspace, 3"
+            "$mainMod SHIFT, ccaron, movetoworkspace, 4"
+            "$mainMod SHIFT, rcaron, movetoworkspace, 5"
+            "$mainMod SHIFT, zcaron, movetoworkspace, 6"
+            "$mainMod SHIFT, yacute, movetoworkspace, 7"
+            "$mainMod SHIFT, aacute, movetoworkspace, 8"
+            "$mainMod SHIFT, iacute, movetoworkspace, 9"
+            "$mainMod SHIFT, eacute, movetoworkspace, 10"
+
+
             # Scroll through existing workspaces with mainMod + scroll
             "bind = $mainMod, mouse_down, workspace, e+1"
             "bind = $mainMod, mouse_up, workspace, e-1"
-          ]
-          ++ map (n: "$mainMod SHIFT, ${toString n}, movetoworkspace, ${toString (
-            if n == 0
-            then 10
-            else n
-          )}") [1 2 3 4 5 6 7 8 9 0]
-          ++ map (n: "$mainMod, ${toString n}, workspace, ${toString (
-            if n == 0
-            then 10
-            else n
-          )}") [1 2 3 4 5 6 7 8 9 0];
+          ];
+          # ++ map (n: "$mainMod SHIFT, ${toString n}, movetoworkspace, ${toString (
+          #   if n == 0
+          #   then 10
+          #   else n
+          # )}") [1 2 3 4 5 6 7 8 9 0]
+          # ++ map (n: "$mainMod, ${toString n}, workspace, ${toString (
+          #   if n == 0
+          #   then 10
+          #   else n
+          # )}") [1 2 3 4 5 6 7 8 9 0];
 
         binde = [
           "$mainMod SHIFT, h, moveactive, -20 0"
