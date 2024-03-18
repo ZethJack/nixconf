@@ -11,7 +11,7 @@
 
   nixpkgs = {
     config = {
-      # allowUnfree = true;
+      allowUnfree = true;
       experimental-features = "nix-command flakes";
     };
   };
@@ -24,6 +24,11 @@
   myHomeManager.nix-direnv.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Zeth";
+    userEmail = "zeth@zethjack.eu";
+  };
 
   home.packages = with pkgs; [
     nil
@@ -39,6 +44,7 @@
     imagemagick
     killall
     neovim
+    helix
 
     fzf
     htop
@@ -68,6 +74,7 @@
   myHomeManager.impermanence.directories = [
     ".local/share/nvim"
     ".config/nvim"
+    ".config/helix"
 
     ".ssh"
   ];
