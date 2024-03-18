@@ -64,7 +64,7 @@
     (pass.withExtensions (exts: with exts; [
       pass-otp
     ]))
-    pass
+    # pass
     wofi-pass
     
     yt-dlp
