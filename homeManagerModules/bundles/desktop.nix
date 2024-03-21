@@ -55,17 +55,17 @@
     programs.imv = {
       enable = true;
       settings = {
-        options.background = "${config.colorScheme.colors.base00}";
+        options.background = "${config.colorScheme.palette.base00}";
       };
     };
 
     services.mako = {
       enable = true;
-      backgroundColor = "#${config.colorScheme.colors.base01}";
-      borderColor = "#${config.colorScheme.colors.base0E}";
+      backgroundColor = "#${config.colorScheme.palette.base01}";
+      borderColor = "#${config.colorScheme.palette.base0E}";
       borderRadius = 5;
       borderSize = 2;
-      textColor = "#${config.colorScheme.colors.base04}";
+      textColor = "#${config.colorScheme.palette.base04}";
       defaultTimeout = 10000;
       layer = "overlay";
     };

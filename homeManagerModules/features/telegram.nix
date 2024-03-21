@@ -5,7 +5,7 @@
   ...
 }: {
   # ========================== unfinished ========================== #
-  # home.file."telegramtest".text = with config.colorScheme.colors; ''
+  # home.file."telegramtest".text = with config.colorScheme.palette; ''
   #   color0='#${base00}'
   #   color1='#${base08}'
   #   color2='#${base0B}'

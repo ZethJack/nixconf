@@ -50,8 +50,8 @@ in {
           gaps_in = 5;
           gaps_out = 10;
           border_size = 2;
-          "col.active_border" = "rgba(${config.colorScheme.colors.base0E}ff) rgba(${config.colorScheme.colors.base09}ff) 60deg";
-          "col.inactive_border" = "rgba(${config.colorScheme.colors.base00}ff)";
+          "col.active_border" = "rgba(${config.colorScheme.palette.base0E}ff) rgba(${config.colorScheme.palette.base09}ff) 60deg";
+          "col.inactive_border" = "rgba(${config.colorScheme.palette.base00}ff)";
 
           layout = "master";
         };
