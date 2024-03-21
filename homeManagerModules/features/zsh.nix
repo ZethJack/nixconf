@@ -125,6 +125,9 @@ in {
     [ -f "$HOME/.local/share/zsh/nix-zsh-completions/nix.plugin.zsh" ] && \
     source "$HOME/.local/share/zsh/nix-zsh-completions/nix.plugin.zsh"
 
+    [ -f "$HOME/.nix-profile/etc/profile.d/hm-sessionvars.sh" ] && \
+    source "$HOME/.nix-profile/etc/profile.d/hm-sessionvars.sh"
+
     if [[ -n $CUSTOMZSHTOSOURCE ]]; then
       source "$CUSTOMZSHTOSOURCE"
     fi
