@@ -36,6 +36,7 @@
     pistol
     file
     git
+    gh
     p7zip
     unzip
     zip
