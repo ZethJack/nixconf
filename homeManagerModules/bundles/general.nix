@@ -62,10 +62,8 @@
     wget
 
     gnupg
-    (pass.withExtensions (exts: with exts; [
-      pass-otp
-    ]))
-    # pass
+    passExtensions.pass-otp
+    pass
     wofi-pass
     
     yt-dlp
