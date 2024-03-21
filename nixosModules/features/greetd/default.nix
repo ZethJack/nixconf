@@ -1,6 +1,6 @@
 {
 	pkgs,
-	...
+		...
 }:
 
 {
@@ -8,16 +8,16 @@
 		enable = true;
 		settings = {
 			default_session.command = ''
-			${pkgs.greetd.tuigreet}/bin/tuigreet \
-			--time \
-			--asterisks \
-			--remember \
-			--user-menu \
-			--cmd Hyprland
-			'';
+				${pkgs.greetd.tuigreet}/bin/tuigreet \
+				--time \
+				--asterisks \
+				--remember \
+				--user-menu \
+				--cmd Hyprland
+				'';
 		};
 	};
 	environment.etc."greetd/environments".text = ''
-	  Hyprland
-	'';
+		Hyprland
+		'';
 }
