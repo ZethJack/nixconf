@@ -12,7 +12,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../nixosModules/features/greetd/default.nix
-  ];
+  ]
+    ++ (myLib.filesIn ./included);
 
   myNixOS = {
     bundles.general-desktop.enable = true;
@@ -41,6 +42,10 @@
   boot.loader.grub.device = "/dev/sda";
   # boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
+
+  boot.kernelParams = ["quiet" "udev.log_level=3" "nvidia_drm.fbdev=1" "nvidia_drm.modeset=1"];
+  boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
+
 
   boot.extraModprobeConfig = ''
     options kvm_intel nested=1
