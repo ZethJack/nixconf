@@ -215,7 +215,7 @@ in {
             "$mainMod SHIFT, D, exec, wofi --show drun"
             "$mainMod, D, exec, rofi -show drun -show-icons"
             "$mainMod, P, pin, active"
-            "CTRL ALT, P, exec, wofi-pass"
+            "CTRL ALT, P, exec, wofi-pass ~/.local/share/password-store"
 
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
