@@ -110,7 +110,7 @@
   ];
 
   environment.sessionVariables = {
-    FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
+    FLAKE = "$HOME/.local/src/nixconf";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
     PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
   };
