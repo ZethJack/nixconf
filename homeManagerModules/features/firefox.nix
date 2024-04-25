@@ -17,7 +17,7 @@
         multi-account-containers
         youtube-shorts-block
         youtube-nonstop
-        return-youtube-dislike
+        return-youtube-dislikes
       ];
 
       search.engines = {
