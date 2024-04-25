@@ -18,7 +18,6 @@
   myNixOS = {
     bundles.general-desktop.enable = true;
     bundles.users.enable = true;
-    bundles.gaming.enable = true;
     
     sharedSettings.hyprland.enable = true;
     home-users = {
