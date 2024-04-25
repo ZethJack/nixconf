@@ -109,6 +109,12 @@
     winetricks
   ];
 
+  environment.sessionVariables = {
+    FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
+    PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
+    PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
+  };
+
   networking.firewall.allowedTCPPorts = [50000 53962 51319 32771 40668 54156 8080 80 50922 5000 3000];
   networking.firewall.allowedUDPPorts = [50000 56787 51319 32771 40668 38396 46223 8080 80 50922 5000 3000];
   networking.firewall.extraCommands = ''iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns'';
