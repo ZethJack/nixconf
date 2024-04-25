@@ -18,7 +18,8 @@
   myNixOS = {
     bundles.general-desktop.enable = true;
     bundles.users.enable = true;
-
+    bundles.gaming.enable = true;
+    
     sharedSettings.hyprland.enable = true;
     home-users = {
       "zeth" = {
@@ -104,6 +105,9 @@
     pciutils
     cifs-utils
     vulkan-tools
+    wineWowPackages.stable
+    wineWowPackages.waylandFull
+    winetricks
   ];
 
   networking.firewall.allowedTCPPorts = [50000 53962 51319 32771 40668 54156 8080 80 50922 5000 3000];
