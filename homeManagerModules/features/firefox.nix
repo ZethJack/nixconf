@@ -16,6 +16,8 @@
         vimium
         multi-account-containers
         youtube-shorts-block
+        youtube-nonstop
+        return-youtube-dislike
       ];
 
       search.engines = {
