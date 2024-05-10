@@ -6,99 +6,159 @@
   outputs,
   system,
   myLib,
+  hm,
   ...
 }: {
-  imports =
-    [
-      ./hardware-configuration.nix
-      (import ./disko.nix {device = "/dev/nvme1n1";})
-      inputs.disko.nixosModules.default
-    ]
-    ++ (myLib.filesIn ./included);
-
-  boot = {
-    loader.grub.enable = true;
-    loader.grub.efiSupport = true;
-    loader.grub.efiInstallAsRemovable = true;
-
-    supportedFilesystems = ["ntfs"];
-
-    kernelParams = ["quiet" "udev.log_level=3" "nvidia_drm.fbdev=1" "nvidia_drm.modeset=1"];
-    kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
-  };
+  imports = [
+    ./hardware-configuration.nix
+    ../../nixosModules/features/greetd/default.nix
+  ]
+    # ++ (myLib.filesIn ./included);
+  ;
 
   myNixOS = {
     bundles.general-desktop.enable = true;
     bundles.users.enable = true;
-    power-management.enable = true;
-    sops.enable = false;
-
-    virtualisation.enable = lib.mkDefaut true;
-
+    
     sharedSettings.hyprland.enable = true;
-
     home-users = {
-      "yurii" = {
+      "zeth" = {
         userConfig = ./home.nix;
         userSettings = {
-          extraGroups = ["networkmanager" "wheel" "libvirtd" "docker" "adbusers" "openrazer"];
+          extraGroups = ["libvirtd" "networkmanager" "wheel" "adbusers"];
         };
       };
     };
-
-    impermanence.enable = true;
-    impermanence.nukeRoot.enable = true;
+    cachix.enable = true;
   };
 
-  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  security.polkit.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  system.name = "potatOS-nixos";
+  system.nixos.label = "test1";
 
-  virtualisation.libvirtd.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings = {
-      dns_enabled = true;
-    };
-  };
+  security.sudo.wheelNeedsPassword = false;
 
-  networking.hostName = "nixos";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.initrd.luks.devices."luks-f094d3af-0ead-4064-aa5d-4b80a24d970c".device = "/dev/disk/by-uuid/f094d3af-0ead-4064-aa5d-4b80a24d970c";
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
+
+  boot.kernelParams = ["quiet" "udev.log_level=3" ];
+  boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
+
+
+  boot.extraModprobeConfig = ''
+    options kvm_intel nested=1
+    options kvm_intel emulate_invalid_guest_state=0
+    options kvm ignore_msrs=1
+  '';
+  console.keyMap = "cz-qwertz";
+  networking.hostName = "potatOS";
+
+  # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
+
+  services.xserver = {
+    enable = true;
+    videoDrivers = ["intel"];
+    xkb = {
+      layout = "cz";
+      variant = "";
+    };
+    libinput.enable = true;
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "gtk2";
+    enableSSHSupport = true;
+  };
 
   hardware = {
     enableAllFirmware = true;
-    cpu.amd.updateMicrocode = true; #needs unfree
-    bluetooth.enable = true;
+    cpu.intel.updateMicrocode = true;
+    # bluetooth.enable = true;
     opengl = {
       enable = true;
       driSupport32Bit = true;
       driSupport = true;
+      extraPackages = with pkgs; [
+        vulkan-tools
+        vulkan-headers
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-tools-lunarg
+      ];
     };
   };
 
-  hardware.openrazer.enable = true;
+  # hardware.nvidia.modesetting.enable = true;
+  environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
-  services = {
-    hardware.openrgb.enable = true;
-    flatpak.enable = true;
-    udisks2.enable = true;
-    printing.enable = true;
-  };
-
-  programs.zsh.enable = true;
-  programs.hyprland.enable = true;
-  programs.adb.enable = true;
+  services.printing.enable = true;
+  services.ratbagd.enable = true;
+  services.usbmuxd.enable = true;
+  services.avahi.enable = true;
 
   environment.systemPackages = with pkgs; [
+    pciutils
+    cifs-utils
+    vulkan-tools
     wineWowPackages.stable
     wineWowPackages.waylandFull
     winetricks
   ];
 
+  environment.sessionVariables = {
+    FLAKE = "$HOME/.local/src/nixconf";
+    PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
+    PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
+  };
+
+  networking.firewall.allowedTCPPorts = [50000 53962 51319 32771 40668 54156 8080 80 50922 5000 3000];
+  networking.firewall.allowedUDPPorts = [50000 56787 51319 32771 40668 38396 46223 8080 80 50922 5000 3000];
+  networking.firewall.extraCommands = ''iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns'';
+  networking.firewall.enable = false;
+  services.samba-wsdd.enable = true;
+
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   xdg.portal.enable = true;
 
-  system.stateVersion = "23.11";
+  programs.adb.enable = true;
+
+  virtualisation = {
+    # podman = {
+    #   enable = true;
+    #
+    #   # `docker` alias
+    #   dockerCompat = true;
+    #   defaultNetwork.settings.dns_enabled = true;
+    # };
+  };
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
+  # virtualisation.docker.enableNvidia = true;
+
+  services.gnome.gnome-keyring.enable = true;
+  services.gvfs.enable = true;
+  services.flatpak.enable = true;
+
+  services.samba = {
+    enable = true;
+  };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
+
+  # ================================================================ #
+  # =                         DO NOT TOUCH                         = #
+  # ================================================================ #
+
+  system.stateVersion = "23.05";
 }

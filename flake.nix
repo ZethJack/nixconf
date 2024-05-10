@@ -74,6 +74,7 @@
         laptop = mkSystem ./hosts/laptop/configuration.nix;
         work = mkSystem ./hosts/work/configuration.nix;
         hashbrown = mkSystem ./hosts/hashbrown/configuration.nix;
+        potatOS = mkSystem ./hosts/potatOS/configuration.nix;
         vps = mkSystem ./hosts/vps/configuration.nix;
         liveiso = mkSystem ./hosts/liveiso/configuration.nix;
       };
