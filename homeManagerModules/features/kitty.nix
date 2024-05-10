@@ -82,6 +82,7 @@
       map kitty_mod+h kitty_scrollback_nvim
       map kitty_mod+g kitty_scrollback_nvim --config ksb_builtin_last_cmd_output
       mouse_map ctrl+shift+right press ungrabbed combine : mouse_select_command_output : kitty_scrollback_nvim --config ksb_builtin_last_visited_cmd_output
+      confirm_os_window_close 0
     '';
   };
 }
