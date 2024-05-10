@@ -144,7 +144,7 @@
   virtualisation.docker.enable = true;
   # virtualisation.docker.enableNvidia = true;
 
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
   services.flatpak.enable = true;
 

@@ -26,6 +26,7 @@
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
+  security.pam.services.zeth.gnupg.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
