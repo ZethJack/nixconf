@@ -29,6 +29,9 @@
     userName = "Zeth";
     userEmail = "zeth@zethjack.eu";
   };
+  programs.gh = {
+    enable = true;
+  };
 
   home.packages = with pkgs; [
     nil
