@@ -32,6 +32,10 @@
   programs.gh = {
     enable = true;
   };
+  services.syncthing = {
+    enable = true;
+    tray.enable = false;
+  };
 
   home.packages = with pkgs; [
     nil
@@ -73,6 +77,7 @@
     yt-dlp
     tree-sitter
     brave
+    syncthing
 
     nh
   ];
