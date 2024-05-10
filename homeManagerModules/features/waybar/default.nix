@@ -32,7 +32,7 @@
       "network"
       "bluetooth"
       "pulseaudio#microphone"
-      "custom/battery"
+      # "custom/battery"
       "clock"
       "tray"
     ];
