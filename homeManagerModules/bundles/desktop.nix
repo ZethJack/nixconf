@@ -99,7 +99,7 @@
       wezterm
       kitty
 
-      onlyoffice-bin
+      libreoffice-fresh
       easyeffects
       gegl
     ];
