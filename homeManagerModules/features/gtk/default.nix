@@ -96,7 +96,7 @@ in {
   gtk.theme.name = "adw-gtk3";
 
   gtk.cursorTheme.package = pkgs.bibata-cursors;
-  gtk.cursorTheme.name = "Bibata-Modern-Ice";
+  gtk.cursorTheme.name = "Bibata-Original-Amber";
 
   gtk.iconTheme.package = gruvboxPlus;
   gtk.iconTheme.name = "GruvboxPlus";

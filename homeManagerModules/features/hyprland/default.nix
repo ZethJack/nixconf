@@ -11,7 +11,7 @@
 
      ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
 
-     hyprctl setcursor Bibata-Modern-Ice 16 &
+     hyprctl setcursor Bibata-Original-Amber 12 &
 
      systemctl --user import-environment PATH &
      systemctl --user restart xdg-desktop-portal.service &
@@ -78,7 +78,7 @@ in {
           (lib.filter (m: m.enabled && m.workspace != null) config.myHomeManager.monitors);
 
         env = [
-          "XCURSOR_SIZE,24"
+          "XCURSOR_SIZE,12"
           # "GDK_BACKEND,wayland,x11"
           # "SDL_VIDEODRIVER,wayland"
           # "CLUTTER_BACKEND,wayland"
