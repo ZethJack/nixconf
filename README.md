@@ -9,9 +9,12 @@ Changes that were introduced so far are very opinionated and might break the cur
 
 
 ## Changes I've introduced so far
-  - Introduced new host configuration - **hasbrown** for my desktop and **potatOS** for my lenovo thinkpad X220 - the laptop hadn't been migrated to nixOS yet so that folder is empty.
+  - Introduced new host configuration - **hasbrown** for my desktop and **potatOS** for my lenovo thinkpad X220.
   - adjusted locales to cs_CZ-UTF-8 and modified keyboard layout accordingly
   - replaced SDDM display manager with TUI-based greetd as SDDM has tendency to break in some occasions. This however introduced new issues - namely when trying to "logout" out of hyprland session
-  - added and removed some programs
-  - tried to implement PASS as password manager - while it works within terminal, trying to call wofi-pass from wayland doesn't work yet.
+  - added and removed some programs to suit personal preferences
+  - tried to implement PASS as password manager - ~while it works within terminal, trying to call wofi-pass from wayland doesn't work yet.~ seems to work thanks to environment.sessionVariavbles
 
+## TODO
+ - [] add script for handling screenshots
+ - [] implement sysact script - a dmenu-based utility to manage logout, screenlocking, shutdown and reboot and bind it on hyprland
