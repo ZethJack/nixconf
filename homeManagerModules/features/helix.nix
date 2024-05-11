@@ -1,4 +1,15 @@
-{ pkgs,... }:{
+{ pkgs,... }:
+let
+  lf-pick = pkgs.writeShellScriptBin "lf-pick" ''
+    function lfp(){
+      local TEMP=$(mktemp)
+      lf -selection-path=$TEMP
+      cat $TEMP
+    }
+    lfp
+  '';
+
+in {
     home.packages = with pkgs; [
       helix
     ];
@@ -32,14 +43,6 @@
 
     };
   };
+  environment.systemPackages = [ lf-pick ];
   
-  home.file.".local/bin/lf-pick".text = ''
-    function lfp(){
-      local TEMP=$(mktemp)
-      lf -selection-path=$TEMP
-      cat $TEMP
-    }
-
-    lfp
-  '';
 }
