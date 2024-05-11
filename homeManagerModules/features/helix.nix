@@ -12,6 +12,7 @@ let
 in {
     home.packages = with pkgs; [
       helix
+      lf-pick
     ];
 
   programs.helix = {
@@ -43,6 +44,4 @@ in {
 
     };
   };
-  environment.systemPackages = [ lf-pick ];
-  
 }
