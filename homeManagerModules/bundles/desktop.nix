@@ -21,6 +21,7 @@
     myHomeManager.alacritty.enable = lib.mkDefault true;
     myHomeManager.kitty.enable = lib.mkDefault true;
     myHomeManager.xremap.enable = lib.mkDefault true;
+    myHomeManager.helix.enable = lib.mkDefault true;
 
     myHomeManager.gtk.enable = lib.mkDefault true;
 
