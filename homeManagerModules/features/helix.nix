@@ -23,6 +23,7 @@ in {
     theme = "catppuccin_mocha";
     keys.normal = {
       esc = [ "collapse_selection" "keep_primary_selection" ];
+      C-f = [":new" ":insert-output lf-pick" ":theme default" "select_all" "split_selection_on_newline" "goto_file" "goto_last_modified_file" ":buffer-close!" ":theme catppuccin_mocha"];
     };
     editor = {
       line-number = "relative";
