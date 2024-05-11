@@ -1,9 +1,11 @@
-{ pkgs,
-... }:
-{
+{ pkgs,... }:{
+    home.packages = with pkgs; [
+      helix
+    ];
+
   programs.helix = {
-    enable = "true";
-    defaultEditor = "true";
+    enable = true;
+    defaultEditor = true;
     settings = {
       
     theme = "catppuccin_mocha";
@@ -23,8 +25,8 @@
       };
 
       soft-wrap = {
-        enable=true;
-        max-wrap=25;
+        enable = true;
+        max-wrap= 25;
         };
     };
 
