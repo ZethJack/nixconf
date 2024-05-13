@@ -90,8 +90,6 @@
 
   home.sessionVariables = {
     FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
-    PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-    PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
   };
 
   myHomeManager.impermanence.directories = [
