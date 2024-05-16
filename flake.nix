@@ -49,6 +49,11 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,7 +66,7 @@
     persist-retro.url = "github:Geometer1729/persist-retro";
 
   };
-
+  
   outputs = {...} @ inputs: let
     # super simple boilerplate-reducing
     # lib with a bunch of functions
@@ -94,4 +99,4 @@
       homeManagerModules.default = ./homeManagerModules;
       nixosModules.default = ./nixosModules;
     };
-}
+  }
