@@ -213,6 +213,7 @@ in {
             "$mainMod, bracketleft, changegroupactive, b"
             "$mainMod, bracketright, changegroupactive, f"
             "$mainMod SHIFT, D, exec, wofi --show drun"
+            "$mainMod SHIFT, D, exec, wofi --show run"
             "$mainMod, D, exec, rofi -show drun -show-icons"
             "$mainMod, W, exec, firefox"
             "$mainMod, P, pin, active"
