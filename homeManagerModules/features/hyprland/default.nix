@@ -184,9 +184,9 @@ in {
 
         # Example per-device config
         # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-        "device:logitech-g102-lightsync-gaming-mouse" = {
-          sensitivity = 0;
-        };
+        # "device:logitech-g102-lightsync-gaming-mouse" = {
+          # sensitivity = 0;
+        # };
 
         # Example windowrule v1
         # windowrule = float, ^(kitty)$
