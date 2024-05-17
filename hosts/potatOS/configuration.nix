@@ -106,6 +106,7 @@
   services.avahi.enable = true;
 
   environment.systemPackages = with pkgs; [
+    hyprlock
     pciutils
     cifs-utils
     vulkan-tools

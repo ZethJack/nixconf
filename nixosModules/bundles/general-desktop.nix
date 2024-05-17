@@ -24,7 +24,7 @@
   };
 
   # Enable PAM support for hyprlock
-  security.pam.services.zeth.hyprlock.enable = true;
+  security.pam.services.hyprlock = {};
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
