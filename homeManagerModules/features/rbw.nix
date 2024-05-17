@@ -9,7 +9,7 @@
     settings = {
       email = "yurii@goxore.com";
       # lock_timeout = 300;
-      pinentry = "curses";
+      pinentry = pkgs.pinentry-curses;
     };
   };
 }

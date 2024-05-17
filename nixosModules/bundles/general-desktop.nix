@@ -23,6 +23,8 @@
     LC_TIME = "cs_CZ.UTF-8";
   };
 
+  # Enable PAM support for hyprlock
+  security.pam.services.zeth.hyprlock.enable = true;
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
