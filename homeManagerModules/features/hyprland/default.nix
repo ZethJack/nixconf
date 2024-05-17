@@ -212,12 +212,12 @@ in {
             "$mainMod, G, togglegroup,"
             "$mainMod, bracketleft, changegroupactive, b"
             "$mainMod, bracketright, changegroupactive, f"
-            "$mainMod SHIFT, D, exec, wofi --show drun"
             "$mainMod SHIFT, D, exec, wofi --show run"
             "$mainMod, D, exec, rofi -show drun -show-icons"
             "$mainMod, W, exec, firefox"
             "$mainMod, P, pin, active"
             "CTRL ALT, P, exec, wofi-pass ~/.local/share/password-store"
+            "$mainMod, BACKSPACE, exec, sysact"
 
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
