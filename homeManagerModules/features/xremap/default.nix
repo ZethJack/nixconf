@@ -33,9 +33,9 @@ in {
       path = builtins.head inputs.xremap-flake.homeManagerModules.default.imports;
 
       # adding option
-      extraOptions = {
-        services.xremap.enable = lib.mkEnableOption "enable xremap";
-      };
+      # extraOptions = {
+      #   services.xremap.enable = lib.mkEnableOption "enable xremap";
+      # };
 
       # only enabling xremap if this option is toggles
       configExtension = config: lib.mkIf cfg.services.xremap.enable config;
