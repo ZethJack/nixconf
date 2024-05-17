@@ -7,7 +7,7 @@ let
     	*) ctl='loginctl' ;;
     esac
 
-    case "$(printf "🔒 lock\n🚪 logout\n♻️ renew hypr\n🐻 hibernate\n🔃 reboot\n🖥️shutdown\n💤 sleep" | dmenu -i -p 'Action: ')" in
+    case "$(printf "🔒 lock\n🚪 logout\n♻️ renew hypr\n🐻 hibernate\n🔃 reboot\n🖥️shutdown\n💤 sleep" | rofi -dmenu -i -p 'Action: ')" in
     	'🔒 lock') slock ;;
     	'🚪 leave hypr') hyprctl dispatch exit ;;
     	'♻️ renew hypr') hyprctl reload ;;
