@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 {
   programs.hyprlock = {
     enable = true;
@@ -32,7 +32,7 @@
           shadow_passes = 2;
         }
       ];
-      labels = [
+      label = [
         {
           # clock
           text = "$TIME";
