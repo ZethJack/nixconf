@@ -7,7 +7,7 @@
   ...
 }: let
   startScript = pkgs.writeShellScriptBin "start" ''
-     ${pkgs.swww}/bin/swww init &
+     ${pkgs.swww}/bin/swww-daemon &
 
      ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
 
