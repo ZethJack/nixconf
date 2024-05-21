@@ -1,4 +1,4 @@
-{ config, pkgs,... }:
+{ pkgs,... }:
 let
   sysact = pkgs.writeShellScriptBin "sysact" ''
       # A dmenu wrapper script for system functions.
@@ -7,8 +7,10 @@ let
     	'🔒 lock') ${pkgs.hyprlock}/bin/hyprlock ;;
     	'🚪 logout') ${pkgs.hyprland}/bin/hyprctl dispatch exit ;;
     	'♻️ renew hypr')  ${pkgs.hyprland}/bin/hyprctl reload ;;
+      '🐻 hibernate') systemctl hibernate; ${pkgs.hyprlock}/bin/hyprlock ;;
     	'🔃 reboot') systemctl reboot -i ;;
     	'🖥️shutdown') systemctl poweroff -i ;;
+      '💤 sleep') systemctl suspend; ${pkgs.hyprlock}/bin/hyprlock ;;
     	*) exit 1 ;;
     esac
   '';
