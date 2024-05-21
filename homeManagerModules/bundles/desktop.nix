@@ -82,7 +82,9 @@
       pavucontrol
       adwaita-qt
       pcmanfm
+      element-desktop
       libnotify
+      qtox
 
       pywal
       neovide
