@@ -86,6 +86,7 @@
       element-desktop
       libnotify
       qtox
+      qpwgraph
 
       pywal
       neovide
