@@ -108,7 +108,7 @@ in {
           kb_layout = "cz";
           kb_variant = "";
           kb_model = "";
-          kb_options = "";
+          kb_options = "Menu:Super";
 
           kb_rules = "";
 	  numlock_by_default = true;
@@ -219,6 +219,8 @@ in {
             "$mainMod, P, pin, active"
             "CTRL ALT, P, exec, wofi-pass ~/.local/share/password-store"
             "$mainMod, BACKSPACE, exec, sysact"
+            " , PRINT, exec, grimshot copy screen"
+            "SHIFT, PRINT, exec, grimslurp"
 
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
