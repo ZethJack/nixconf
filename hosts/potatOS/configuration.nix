@@ -60,7 +60,7 @@
   console.keyMap = "cz-qwertz";
   networking.hostName = "potatOS";
 
-  networking.extraHosts = builtins.readFile ../../nixosModules/features/hblock;
+  networking.extraHosts = builtins.readFile ../hblock;
 
   # Enable networking
   networking.networkmanager.enable = true;
