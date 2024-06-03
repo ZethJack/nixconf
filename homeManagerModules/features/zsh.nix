@@ -26,6 +26,7 @@ in {
     dotDir = ".config/zsh";
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
+      mkd = "mkdir -pv";
       tree = "${pkgs.eza}/bin/eza --color=auto --tree";
       cal = "cal -m";
       grep = "grep --color=auto";
