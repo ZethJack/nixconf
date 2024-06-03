@@ -10,6 +10,7 @@
     bundles.desktop.enable = true;
     bundles.gaming.enable = true;
     bundles.desktop-full.enable = true;
+    hypridle.enable = true;
 
     firefox.enable = true;
     hyprland.enable = true;
