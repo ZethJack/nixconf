@@ -215,7 +215,7 @@ in {
             "$mainMod, bracketright, changegroupactive, f"
             "$mainMod SHIFT, D, exec, wofi --show run"
             "$mainMod, D, exec, rofi -show drun -show-icons"
-            "$mainMod, W, exec, firefox"
+            "$mainMod, W, exec, brave"
             "$mainMod, P, pin, active"
             "CTRL ALT, P, exec, wofi-pass ~/.local/share/password-store"
             "$mainMod, BACKSPACE, exec, sysact"
