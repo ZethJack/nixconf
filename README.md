@@ -16,5 +16,14 @@ Changes that were introduced so far are very opinionated and might break the cur
   - tried to implement PASS as password manager - ~while it works within terminal, trying to call wofi-pass from wayland doesn't work yet.~ seems to work thanks to environment.sessionVariavbles
 
 ## TODO
- - [] add script for handling screenshots
- - [] implement sysact script - a dmenu-based utility to manage logout, screenlocking, shutdown and reboot and bind it on hyprland
+ - [ ] replace nix-colors with stylix - refer to upstream fork
+ - [ ] add configs for newsboat - needs yt-dlp, ffmpeg and mpv so I can download vids, convert to audio and store as podcasts 
+ - [ ] add email client - preferably neomutt, but I am open to alternatives depending on how annoying it will be to configure
+ - [ ] add scripts for virtual audiosinks on hashbrown - so I can route output to multiple devices (speakers and headphones) at once
+   - [ ] look into niceboy microphone support, maybe try different distro to verify - for some reason I get no input what so ever
+ - [ ] add music player - mpv and ncmpcpp
+
+## DONE
+ - [x] add script for handling screenshots
+ - [x] implement sysact script - a dmenu-based utility to manage logout, screenlocking, shutdown and reboot and bind it on hyprland
+ - [x] add lockscreen and automatic "idle" routine that locks screen on laptop (hyprlock and hypridle)
