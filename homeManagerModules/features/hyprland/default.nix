@@ -117,7 +117,7 @@ in {
 
           touchpad = {
             natural_scroll = false;
-            scroll_factor= 0.3;
+            scroll_factor= 0.1;
 	  
           };
 
@@ -125,7 +125,7 @@ in {
           repeat_delay = 250;
           force_no_accel = true;
 
-          sensitivity = 0.0; # -1.0 - 1.0, 0 means no modification.
+          sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
         };
 
         misc = {
