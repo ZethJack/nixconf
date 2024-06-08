@@ -2,7 +2,7 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "gruvbox_dark_v2";
+      color_theme = "catppuccin_mocha";
       vim_keys = true;
     };
   };
