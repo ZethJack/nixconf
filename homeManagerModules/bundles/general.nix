@@ -23,6 +23,7 @@
   myHomeManager.bottom.enable = lib.mkDefault true;
   myHomeManager.nix-direnv.enable = lib.mkDefault true;
   myHomeManager.hyprlock.enable = lib.mkDefault true;
+  myHomeManager.btop.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
   programs.git = {

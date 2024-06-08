@@ -108,7 +108,7 @@ in {
           kb_layout = "cz";
           kb_variant = "";
           kb_model = "";
-          kb_options = "Menu:Super";
+          kb_options = "menu:super";
 
           kb_rules = "";
 	  numlock_by_default = true;
@@ -125,7 +125,7 @@ in {
           repeat_delay = 250;
           force_no_accel = true;
 
-          sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+          sensitivity = 1.2; # -1.0 - 1.0, 0 means no modification.
         };
 
         misc = {
