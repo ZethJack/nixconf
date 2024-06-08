@@ -38,10 +38,7 @@
           text = "$TIME";
           color = "rgb(202, 211, 245)";
           font_size = 65;
-          position = {
-              x = 0;
-              y = 300;
-          };
+          position = "0, 300";
           halign = "center";
           valign = "center";
 
