@@ -37,7 +37,7 @@ in {
 
     programs.hyprland.enable = cfg.sharedSettings.hyprland.enable;
 
-    services.xserver = lib.mkIf cfg.sharedSettings.hyprland.enable {
+    services = lib.mkIf cfg.sharedSettings.hyprland.enable {
       displayManager = {
         defaultSession = "hyprland";
       };

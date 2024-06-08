@@ -66,8 +66,8 @@
       layout = "cz";
       variant = "";
     };
-    libinput.enable = true;
   };
+  services.libinput.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
