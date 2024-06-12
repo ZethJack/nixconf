@@ -79,6 +79,9 @@ in {
 
         env = [
           "XCURSOR_SIZE,12"
+          "XCURSOR_THEME,Bibata-Original-Amber"
+          "HYPRCURSOR_THEME,Bibata-Original-Amber"
+          "HYPRCURSOR_SIZE,12"
           # "GDK_BACKEND,wayland,x11"
           # "SDL_VIDEODRIVER,wayland"
           # "CLUTTER_BACKEND,wayland"
