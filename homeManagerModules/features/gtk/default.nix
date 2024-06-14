@@ -97,7 +97,7 @@ in {
 
   gtk.cursorTheme.package = pkgs.bibata-cursors;
   gtk.cursorTheme.name = "Bibata-Original-Amber";
-  gtk.cursorTheme.size = "12";
+  gtk.cursorTheme.size = 12;
 
   gtk.iconTheme.package = gruvboxPlus;
   gtk.iconTheme.name = "GruvboxPlus";
