@@ -32,7 +32,6 @@ in {
       grep = "grep --color=auto";
       q = "exit";
       ":q" = "exit";
-      mkd = "mkdir -pv";
     };
   };
 
