@@ -4,7 +4,7 @@ let
       # A dmenu wrapper script for system functions.
 
     case "$(printf "🔒 lock\n🚪 logout\n♻️ renew hypr\n🐻 hibernate\n🔃 reboot\n🖥️shutdown\n💤 sleep" | rofi -dmenu -i -p 'Action: ')" in
-    	'🔒 lock') ${pkgs.hyprlock}/bin/hyprlock ;;
+    	'🔒 lock') pkill hyprlock ; ${pkgs.hyprlock}/bin/hyprlock ;;
     	'🚪 logout') ${pkgs.hyprland}/bin/hyprctl dispatch exit ;;
     	'♻️ renew hypr')  ${pkgs.hyprland}/bin/hyprctl reload ;;
       '🐻 hibernate') systemctl hibernate; ${pkgs.hyprlock}/bin/hyprlock ;;
