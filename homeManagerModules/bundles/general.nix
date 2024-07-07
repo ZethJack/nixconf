@@ -76,6 +76,7 @@
     ripgrep
     neofetch
     lazygit
+    localsend
 
     ffmpeg
     wget
