@@ -32,6 +32,8 @@ in {
       grep = "grep --color=auto";
       q = "exit";
       ":q" = "exit";
+      yt = "${pkgs.yt-dlp}/bin/yt-dlp --add-metadata -i --external-downloader aria2c:\"-c -j 3 -x 3 -s 3 -k 1M\" --sponsorblock-remove sponsor,selfpromo,interaction";
+      yta = "yt -x -f bestaudio/best --audio-format opus -o \"%(title)s.%(ext)s\"";
     };
   };
 
