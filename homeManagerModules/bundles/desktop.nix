@@ -88,6 +88,7 @@
       libnotify
       qtox
       qpwgraph
+      qutebrowser
 
       pywal
       neovide
@@ -95,6 +96,7 @@
       mpv
       sxiv
       zathura
+      newsboat
 
       lm_sensors
       upower

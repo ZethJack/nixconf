@@ -64,6 +64,7 @@
     killall
     neovim
     helix
+    taskspooler
 
     fzf
     htop
