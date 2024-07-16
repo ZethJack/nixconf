@@ -89,6 +89,7 @@
       qtox
       qpwgraph
       qutebrowser
+      rpi-imager
 
       pywal
       neovide
