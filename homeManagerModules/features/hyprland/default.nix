@@ -225,6 +225,7 @@ in {
             " , PRINT, exec, grimshot copy screen"
             "SHIFT, PRINT, exec, grimslurp"
             "$mainMod, N, exec, kitty -e newsboat"
+            "$mainMod, R, exec, kitty -e lf"
 
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
