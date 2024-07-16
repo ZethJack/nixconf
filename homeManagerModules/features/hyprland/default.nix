@@ -224,6 +224,7 @@ in {
             "$mainMod, BACKSPACE, exec, sysact"
             " , PRINT, exec, grimshot copy screen"
             "SHIFT, PRINT, exec, grimslurp"
+            "$mainMod, N, exec, kitty -e newsboat"
 
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
