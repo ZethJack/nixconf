@@ -71,7 +71,7 @@
         on-scroll = 1;
         weeks-pos = "right";
       };
-      format = "󰥔 {:%H:%M}";
+      format = "󰥔 {:%A, %B %d, %Y (%R)} ";
       format-alt = "󰥔 {:%A, %B %d, %Y (%R)} ";
       tooltip-format = ''
         <span size='9pt' font='WenQuanYi Zen Hei Mono'>{calendar}</span>'';
