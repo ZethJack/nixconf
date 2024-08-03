@@ -28,7 +28,8 @@
 
     modules-left = ["custom/logo" "hyprland/workspaces"];
     modules-right = [
-      "hyprland/language"
+      "idle_inhibitor"
+      # "hyprland/language"
       "network"
       "bluetooth"
       "pulseaudio#microphone"
@@ -36,6 +37,14 @@
       "clock"
       "tray"
     ];
+
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        "activated"= " ";
+        "deactivated"= " ";
+      };
+    };
 
     "wlr/workspaces" = workspaces;
     "hyprland/workspaces" = workspaces;
