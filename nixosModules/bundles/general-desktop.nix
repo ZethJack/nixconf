@@ -7,6 +7,7 @@
   myNixOS.xremap-user.enable = lib.mkDefault true;
   myNixOS.system-controller.enable = lib.mkDefault false;
   myNixOS.virtualisation.enable = lib.mkDefault true;
+  myNixOS.stylix.enable = lib.mkDefault true;
 
   # Central European time zone
   time.timeZone = "Europe/Prague";

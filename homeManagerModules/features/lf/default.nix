@@ -10,6 +10,27 @@
   programs.lf = {
     enable = true;
     commands = {
+      # for f in $fx; do
+      #     xdg-open "$f" > /dev/null 2>&1 &
+      # done ;;
+      open = ''
+        &{{
+            case $(file --mime-type -bL -- "$f") in
+                text/*|application/json)
+                    lf -remote "send $id \$$EDITOR \$fx" ;;
+                image/*)
+                    ${lib.getExe pkgs.imv} $fx ;;
+                audio/*)
+                    ${lib.getExe pkgs.mpv} --no-terminal $fx ;;
+                video/*)
+                    ${lib.getExe pkgs.mpv} --no-terminal "$f" ;;
+                application/pdf|application/epub+zip)
+                    ${lib.getExe pkgs.zathura} "$f" ;;
+                *)
+                    lf -remote "send $id \$$EDITOR \$fx" ;;
+            esac
+        }}
+      '';
       drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
       editor-open = ''$$EDITOR "$f"'';
       edit-dir = ''$$EDITOR .'';
@@ -116,7 +137,7 @@
       (
         dir: ''~/${dir}=04;33:''
       )
-      (config.myHomeManager.impermanence.directories);
+      (config.myHomeManager.impermanence.data.directories);
 
     lfExport = ''
       export LF_COLORS="${lib.concatStrings lfColors}"

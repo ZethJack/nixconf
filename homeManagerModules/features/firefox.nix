@@ -124,8 +124,11 @@
     };
   };
 
-  myHomeManager.impermanence.directories = [
+  myHomeManager.impermanence.data.directories = [
     ".mozilla"
+  ];
+
+  myHomeManager.impermanence.cache.directories = [
     ".cache/mozilla"
   ];
 }

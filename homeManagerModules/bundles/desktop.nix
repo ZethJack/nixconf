@@ -39,7 +39,7 @@
     };
 
     qt.enable = true;
-    qt.platformTheme.name = "gtk";
+    qt.platformTheme = "gtk";
     qt.style.name = "adwaita-dark";
 
     home.sessionVariables = {
@@ -60,17 +60,17 @@
     programs.imv = {
       enable = true;
       settings = {
-        options.background = "${config.colorScheme.palette.base00}";
+        options.background = "${config.stylix.base16Scheme.base00}";
       };
     };
 
     services.mako = {
       enable = true;
-      backgroundColor = "#${config.colorScheme.palette.base01}";
-      borderColor = "#${config.colorScheme.palette.base0E}";
+      # backgroundColor = "#${config.stylix.base16Scheme.base01}";
+      # borderColor = "#${config.stylix.base16Scheme.base0E}";
       borderRadius = 5;
       borderSize = 2;
-      textColor = "#${config.colorScheme.palette.base04}";
+      # textColor = "#${config.stylix.base16Scheme.base04}";
       defaultTimeout = 10000;
       layer = "overlay";
     };
@@ -115,7 +115,7 @@
       gegl
     ];
 
-    myHomeManager.impermanence.directories = [
+    myHomeManager.impermanence.cache.directories = [
       ".local/state/wireplumber"
     ];
   };

@@ -12,16 +12,24 @@ in {
   ];
 
   options.myHomeManager.impermanence = {
-    directories = lib.mkOption {
+    data.directories = lib.mkOption {
       default = [];
       description = ''
-        directories to persist
       '';
     };
-    files = lib.mkOption {
+    data.files = lib.mkOption {
       default = [];
       description = ''
-        directories to persist
+      '';
+    };
+    cache.directories = lib.mkOption {
+      default = [];
+      description = ''
+      '';
+    };
+    cache.files = lib.mkOption {
+      default = [];
+      description = ''
       '';
     };
   };
@@ -44,7 +52,7 @@ in {
           ".local/share/keyrings"
           ".local/share/direnv"
 
-          "nixconf"
+          ".local/src/nixconf"
         ]
         ++ cfg.directories;
       allowOther = true;

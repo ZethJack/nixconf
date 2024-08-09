@@ -3,6 +3,8 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
+  programs.mangohud.enable = true;
+
   home.packages = with pkgs; [
     lutris
     steam
@@ -18,10 +20,19 @@
     mangohud
 
     steamPackages.steam-runtime
+    r2modman
+
+    heroic
+
+    er-patcher
   ];
 
-  myHomeManager.impermanence.directories = [
+  myHomeManager.impermanence.cache.directories = [
     ".local/share/Steam"
     ".config/r2modmanPlus-local"
+
+    "Games"
+
+    ".config/heroic"
   ];
 }

@@ -27,7 +27,6 @@
     ];
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home = {
     stateVersion = "22.11";

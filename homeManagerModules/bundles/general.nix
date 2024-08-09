@@ -5,10 +5,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.nix-colors.homeManagerModules.default
-  ];
-
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -24,6 +20,7 @@
   myHomeManager.nix-direnv.enable = lib.mkDefault true;
   myHomeManager.hyprlock.enable = lib.mkDefault true;
   myHomeManager.btop.enable = lib.mkDefault true;
+  myHomeManager.stylix.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
   programs.git = {
@@ -58,7 +55,6 @@
     p7zip
     unzip
     zip
-    stow
     libqalculate
     imagemagick
     killall
@@ -97,7 +93,11 @@
     FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
   };
 
-  myHomeManager.impermanence.directories = [
+  myHomeManager.impermanence.data.directories = [
+    ".ssh"
+  ];
+
+  myHomeManager.impermanence.cache.directories = [
     ".local/share/nvim"
     ".config/nvim"
     ".config/helix"
@@ -105,7 +105,7 @@
     ".ssh"
   ];
 
-  myHomeManager.impermanence.files = [
+  myHomeManager.impermanence.cache.files = [
     ".zsh_history"
   ];
 }

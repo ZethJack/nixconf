@@ -65,6 +65,8 @@
 
     persist-retro.url = "github:Geometer1729/persist-retro";
 
+    stylix.url = "github:danth/stylix";
+    
   };
   
   outputs = {...} @ inputs: let

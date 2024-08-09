@@ -3,7 +3,7 @@
     inkscape-with-extensions
   ];
 
-  myHomeManager.impermanence.directories = [
+  myHomeManager.impermanence.cache.directories = [
     ".config/inkscape"
   ];
 
