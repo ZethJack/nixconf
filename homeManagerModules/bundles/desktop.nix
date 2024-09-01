@@ -113,6 +113,9 @@
       libreoffice-fresh
       easyeffects
       gegl
+      gcc
+      ripgrep
+      fd
     ];
 
     myHomeManager.impermanence.cache.directories = [
