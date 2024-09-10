@@ -116,6 +116,7 @@
       gcc
       ripgrep
       fd
+      cargo
     ];
 
     myHomeManager.impermanence.cache.directories = [
