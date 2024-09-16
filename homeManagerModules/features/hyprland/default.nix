@@ -174,7 +174,7 @@ in {
 
         master = {
           # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = true;
+          new_status = "master";
           # soon :)
           # orientation = "center";
         };
@@ -304,7 +304,7 @@ in {
           "size 1600 900,^(leagueclientux.exe)$"
           "center,^(leagueclientux.exe)$"
           "center,^(league of legends.exe)$"
-          "forceinput,^(league of legends.exe)$"
+          "allowinput,^(league of legends.exe)$"
         ];
 
         exec-once = [
