@@ -53,7 +53,7 @@
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,9 +66,8 @@
     persist-retro.url = "github:Geometer1729/persist-retro";
 
     stylix.url = "github:danth/stylix";
-    
   };
-  
+
   outputs = {...} @ inputs: let
     # super simple boilerplate-reducing
     # lib with a bunch of functions
@@ -101,4 +100,4 @@
       homeManagerModules.default = ./homeManagerModules;
       nixosModules.default = ./nixosModules;
     };
-  }
+}

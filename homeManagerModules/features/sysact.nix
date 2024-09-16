@@ -1,5 +1,4 @@
-{ pkgs,... }:
-let
+{pkgs, ...}: let
   sysact = pkgs.writeShellScriptBin "sysact" ''
       # A dmenu wrapper script for system functions.
 
@@ -14,9 +13,8 @@ let
     	*) exit 1 ;;
     esac
   '';
-
 in {
-    home.packages = with pkgs; [
-      sysact
-    ];
+  home.packages = with pkgs; [
+    sysact
+  ];
 }

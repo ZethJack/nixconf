@@ -1,12 +1,10 @@
-{...}:
-
-{
+{...}: {
   programs.mpv = {
     enable = true;
     config = {
-      vo="gpu-next";
-      hwdec="vaapi";
-      gpu-context="wayland";
+      vo = "gpu-next";
+      hwdec = "vaapi";
+      gpu-context = "wayland";
       cache-secs = 10;
       cache-pause = "yes";
       dither-depth = "auto";

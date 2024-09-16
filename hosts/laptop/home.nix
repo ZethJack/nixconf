@@ -16,7 +16,7 @@
     "Videos"
     "Documents"
     "Projects"
-    
+
     # minecraft
     ".local/share/PrismLauncher"
 

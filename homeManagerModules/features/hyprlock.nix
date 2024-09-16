@@ -1,5 +1,8 @@
-{pkgs, config, ...}:
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -41,7 +44,6 @@
           position = "0, 300";
           halign = "center";
           valign = "center";
-
         }
       ];
     };

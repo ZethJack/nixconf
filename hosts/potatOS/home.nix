@@ -27,7 +27,6 @@
     ];
   };
 
-
   home = {
     stateVersion = "22.11";
     homeDirectory = lib.mkDefault "/home/zeth";

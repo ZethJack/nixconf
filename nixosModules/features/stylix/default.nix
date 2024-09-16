@@ -44,7 +44,6 @@
       base0F = "f2cdcd"; # flamingo
     };
 
-
     image = ./gruvbox-mountain-village.png;
 
     fonts = {
@@ -77,7 +76,6 @@
     targets.grub.enable = true;
     targets.grub.useImage = true;
     targets.plymouth.enable = true;
-  
 
     # opacity.terminal = 1;
     # stylix.targets.nixos-icons.enable = true;

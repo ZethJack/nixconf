@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   nix = {
     settings = {
       substituters = [
@@ -15,4 +19,3 @@
     };
   };
 }
-
