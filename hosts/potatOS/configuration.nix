@@ -9,17 +9,18 @@
   hm,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-    ../../nixosModules/features/greetd/default.nix
-  ]
+  imports =
+    [
+      ./hardware-configuration.nix
+      ../../nixosModules/features/greetd/default.nix
+    ]
     # ++ (myLib.filesIn ./included);
-  ;
+    ;
 
   myNixOS = {
     bundles.general-desktop.enable = true;
     bundles.users.enable = true;
-    
+
     sharedSettings.hyprland.enable = true;
     home-users = {
       "zeth" = {
@@ -34,6 +35,9 @@
 
   system.name = "potatOS-nixos";
   system.nixos.label = "test1";
+  system.activationScripts.createPersistentStorageDirs.text = ''
+    mkdir -p /persist
+  '';
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -48,9 +52,8 @@
   # boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  boot.kernelParams = ["quiet" "udev.log_level=3" ];
+  boot.kernelParams = ["quiet" "udev.log_level=3"];
   boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
-
 
   boot.extraModprobeConfig = ''
     options kvm_intel nested=1
@@ -60,7 +63,7 @@
   console.keyMap = "cz-qwertz";
   networking.hostName = "potatOS";
 
-  networking.hostFiles = [ ../hblock ];
+  networking.hostFiles = [../hblock];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -82,14 +85,19 @@
     enableSSHSupport = true;
   };
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 10";
+  };
+
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
     # bluetooth.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
-      driSupport = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         vulkan-tools
         vulkan-headers

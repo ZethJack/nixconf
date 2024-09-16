@@ -5,7 +5,6 @@
   lib,
   ...
 }: {
-
   options = {
     myHomeManager.startupScript = lib.mkOption {
       default = "";
@@ -20,7 +19,7 @@
     myHomeManager.rofi.enable = lib.mkDefault true;
     myHomeManager.alacritty.enable = lib.mkDefault true;
     myHomeManager.kitty.enable = lib.mkDefault true;
-    myHomeManager.xremap.enable = lib.mkDefault true;
+    # myHomeManager.xremap.enable = lib.mkDefault true;
     myHomeManager.helix.enable = lib.mkDefault true;
     myHomeManager.sysact.enable = lib.mkDefault true;
     myHomeManager.grimslurp.enable = lib.mkDefault true;
@@ -39,7 +38,7 @@
     };
 
     qt.enable = true;
-    qt.platformTheme = "gtk";
+    qt.platformTheme.name = "gtk";
     qt.style.name = "adwaita-dark";
 
     home.sessionVariables = {

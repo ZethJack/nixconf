@@ -82,7 +82,6 @@
     opengl = {
       enable = true;
       driSupport32Bit = true;
-      driSupport = true;
       extraPackages = with pkgs; [
         vulkan-tools
         vulkan-headers
