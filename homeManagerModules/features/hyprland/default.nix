@@ -304,7 +304,7 @@ in {
           "size 1600 900,^(leagueclientux.exe)$"
           "center,^(leagueclientux.exe)$"
           "center,^(league of legends.exe)$"
-          "allowinput,^(league of legends.exe)$"
+          "allowsinput,^(league of legends.exe)$"
         ];
 
         exec-once = [
