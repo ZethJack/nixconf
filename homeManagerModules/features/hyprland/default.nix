@@ -47,8 +47,8 @@ in {
       # enableNvidiaPatches = true;
       settings = {
         general = {
-          gaps_in = 5;
-          gaps_out = 10;
+          gaps_in = 1;
+          gaps_out = 2;
           border_size = 2;
           # "col.active_border" = "rgba(${config.stylix.base16Scheme.base0E}ff) rgba(${config.stylix.base16Scheme.base09}ff) 60deg";
           # "col.inactive_border" = "rgba(${config.stylix.base16Scheme.base00}ff)";
@@ -140,9 +140,9 @@ in {
         decoration = {
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-          rounding = 5;
+          rounding = 0;
 
-          drop_shadow = true;
+          drop_shadow = false;
           shadow_range = 30;
           shadow_render_power = 3;
         };
