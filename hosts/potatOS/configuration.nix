@@ -34,7 +34,7 @@
   };
 
   system.name = "potatOS-nixos";
-  system.nixos.label = "test1";
+  system.nixos.label = "potatOS";
   system.activationScripts.createPersistentStorageDirs.text = ''
     mkdir -p /persist
   '';
@@ -126,6 +126,8 @@
     winetricks
   ];
 
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  
   environment.sessionVariables = {
     FLAKE = "$HOME/.local/src/nixconf";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";

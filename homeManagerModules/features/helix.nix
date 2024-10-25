@@ -40,5 +40,18 @@ in {
         };
       };
     };
+    languages = { language-server.nixd = {
+      command = "nixd";
+    }; 
+    
+    language = [{
+      name = "nix";
+      scope = "source.nix";
+      formatter = { command ="alejandra"; };
+      indent = { tab-width = 2; unit = "  "; };
+      language-servers = [ "nixd" ];
+    }];
+    
+    };
   };
 }
