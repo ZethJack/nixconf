@@ -47,6 +47,9 @@ in {
     language = [{
       name = "nix";
       scope = "source.nix";
+      injection-regex = "nix";
+      file-types = ["nix"];
+      comment-token = "#";
       formatter = { command ="alejandra"; };
       indent = { tab-width = 2; unit = "  "; };
       language-servers = [ "nixd" ];
