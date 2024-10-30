@@ -140,8 +140,9 @@
   networking.firewall.enable = false;
   services.samba-wsdd.enable = true;
 
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  # xdg.portal.enable = true;
+  xdg.portal.wlr.enable = true;
 
   programs.adb.enable = true;
 
