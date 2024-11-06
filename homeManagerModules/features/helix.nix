@@ -42,6 +42,7 @@ in {
     };
     languages = { language-server.nixd = {
       command = "nixd";
+      args = [ "--inlay-hints=true" ];
     }; 
     
     language = [{
