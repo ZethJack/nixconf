@@ -70,7 +70,7 @@
     bat
     du-dust
     ripgrep
-    neofetch
+    fastfetch
     lazygit
     localsend
 
