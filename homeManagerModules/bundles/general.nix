@@ -67,6 +67,7 @@
     eza
     fd
     zoxide
+    obsidian
     bat
     du-dust
     ripgrep
@@ -75,6 +76,7 @@
     localsend
 
     ffmpeg
+    shotcut
     wget
 
     gnupg
