@@ -98,6 +98,7 @@
       sxiv
       zathura
       newsboat
+      pv
 
       lm_sensors
       upower
