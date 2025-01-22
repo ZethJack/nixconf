@@ -25,6 +25,7 @@
     myHomeManager.grimslurp.enable = lib.mkDefault true;
     myHomeManager.linkhandler.enable = lib.mkDefault true;
     myHomeManager.mpv.enable = lib.mkDefault true;
+    myHomeManager.ddw.enable = lib.mkDefault true;
 
     myHomeManager.gtk.enable = lib.mkDefault true;
 

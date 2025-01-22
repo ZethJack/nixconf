@@ -86,6 +86,7 @@
     tree-sitter
     brave
     syncthing
+    wavemon
 
     nh
   ];
