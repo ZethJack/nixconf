@@ -48,9 +48,12 @@
   };
 
   fonts.packages = with pkgs; [
-    (pkgs.nerdfonts.override {fonts = ["JetBrainsMono" "Iosevka" "FiraCode"];})
     cm_unicode
     corefonts
+    noto-fonts-emoji
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
+    nerd-fonts.fira-code
   ];
 
   fonts.enableDefaultPackages = true;
