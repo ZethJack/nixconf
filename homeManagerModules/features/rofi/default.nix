@@ -19,7 +19,7 @@
     }
 
     /*****----- Global Properties -----*****/
-    * {
+    {
         active-background: #${base0B};
         active-foreground: @foreground;
         normal-background: @background;
@@ -180,7 +180,7 @@
         spacing: 0;
         text-color: @normal-foreground;
     }
-    * {
+    {
         font: "JetBrains Mono Nerd Font 16px";
     }
 

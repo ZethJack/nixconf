@@ -1,4 +1,4 @@
-* {
+{
     active-background: #b8bb26;
     active-foreground: @foreground;
     normal-background: @background;

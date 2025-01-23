@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   programs.hyprlock = {
@@ -13,7 +14,7 @@
         no_fade_in = false;
       };
 
-      background = [
+      background = lib.mkForce [
         {
           path = "screenshot";
           blur_passes = 3;
@@ -21,7 +22,7 @@
         }
       ];
 
-      input-field = [
+      input-field = lib.mkForce [
         {
           size = "200, 50";
           position = "0, -80";

@@ -16,7 +16,7 @@
 
   config = {
     myHomeManager.zathura.enable = lib.mkDefault true;
-    myHomeManager.rofi.enable = lib.mkDefault true;
+    # myHomeManager.rofi.enable = lib.mkDefault true;
     myHomeManager.alacritty.enable = lib.mkDefault true;
     myHomeManager.kitty.enable = lib.mkDefault true;
     # myHomeManager.xremap.enable = lib.mkDefault true;
@@ -91,6 +91,7 @@
       qpwgraph
       qutebrowser
       rpi-imager
+      rofi-wayland
 
       pywal
       neovide
