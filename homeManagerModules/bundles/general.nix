@@ -60,6 +60,7 @@
     neovim
     helix
     taskspooler
+    gparted
 
     fzf
     htop
