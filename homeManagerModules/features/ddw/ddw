@@ -1,42 +1,32 @@
 #!/usr/bin/env bash
-if [ $# -ne 2 ]; then
-  echo "Usage: $0 <input_file> <output_file>"
+
+#make sure pv is installed
+if ! command -v pv &> /dev/null; then
+  echo "pv command not found, please install pv to use this script"
   exit 1
 fi
 
-input_file="$1"
-output_file="$2"
+if [ -z "$input" ] || [ -z "$output" ]; then
+  echo "Usage: $0 <input> <output>"
+  exit 1
+fi
+
+input="$1"
+output="$2"
 
 # Get the size of the input file
-size=$(stat -c %s "$input_file")
+size=$(du -b "$input" 2>/dev/null || blockdev --getsize64 "$input" 2>/dev/null)
 
-# Function to display progress
-progress_bar() {
-  local current=$1
-  local total=$2
-  local width=50
-  local percent=$((current * 100 / total))
-  local complete=$((width * current / total))
-  local incomplete=$((width - complete))
-  
-  printf "\r["
-  printf "%0.s=" $(seq 1 $complete)
-  printf "%0.s " $(seq 1 $incomplete)
-  printf "] %d%%" $percent
-}
+if [ -z "$size" ]; then
+  echo "error determining size of $input"
+  exit 1
+fi
 
-# Use dd to read from the input file, use pv to show progress, 
-# and then write to the output file with another dd command
-dd if="$input_file" bs=4M status=none | pv -s $size | dd of="$output_file" bs=4M status=none
+bs=$(( 4 * 1024 * 1024 ))
 
-# Here we manually simulate progress by reading the output file size
-while true; do
-    copied_size=$(stat -c %s "$output_file")
-    if [ $copied_size -ge $size ]; then
-        break
-    fi
-    progress_bar $copied_size $size
-    sleep 0.1
-done
+echo "Size of $input: $(numfmt --to=iec-i --suffix=B "$size")"
+echo "Starting transfer"
 
-echo -e "\nCopy completed."
+dd if="$input" status=none | pv -s "$size" | dd of="$output" bs="$bs" conv=fsync status=none
+
+echo "It is done..."
