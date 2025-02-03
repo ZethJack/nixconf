@@ -6,8 +6,15 @@ if ! command -v pv &> /dev/null; then
   exit 1
 fi
 
+#dry run check
+dry_run=false
+if [ "$1" = "-n" ] || [ "$1" = "--dry-run" ]; then
+  dry_run=true
+  shift
+fi
+
 if [ -z "$input" ] || [ -z "$output" ]; then
-  echo "Usage: $0 <input> <output>"
+  echo "Usage: ddw [-n|--dry-run] <input> <output>"
   exit 1
 fi
 
@@ -25,8 +32,15 @@ fi
 bs=$(( 4 * 1024 * 1024 ))
 
 echo "Size of $input: $(numfmt --to=iec-i --suffix=B "$size")"
-echo "Starting transfer"
-
-dd if="$input" status=none | pv -s "$size" | dd of="$output" bs="$bs" conv=fsync status=none
-
-echo "It is done..."
+case "$dry_run" in
+  true)
+    echo "Dry run: Simulating transfer..."
+    dd if="$input" status-none | pv -s "$size" > /dev/null
+    echo "Dry run is done..."
+    ;;
+  *)
+    echo "Starting transfer"
+    dd if="$input" status=none | pv -s "$size" | dd of="$output" bs="$bs" conv=fsync status=none
+    echo "It is done..."
+  ;;
+esac
