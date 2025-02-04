@@ -101,6 +101,7 @@
       zathura
       newsboat
       pv
+      qbittorrent
 
       lm_sensors
       upower
