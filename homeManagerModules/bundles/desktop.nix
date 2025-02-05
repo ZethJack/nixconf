@@ -76,50 +76,45 @@
     };
 
     home.packages = with pkgs; [
+      adwaita-qt
+      ansible
+      cargo
+      cm_unicode
+      easyeffects
+      element-desktop
+      fd
       feh
+      gcc
+      gegl
+      kitty
+      libnotify
+      libreoffice-fresh
+      lm_sensors
+      lxsession
+      mpv
+      neovide
+      newsboat
       noisetorch
+      pavucontrol
+      pcmanfm
       polkit
       polkit_gnome
-      lxsession
       pulsemixer
-      pavucontrol
-      adwaita-qt
-      pcmanfm
-      element-desktop
-      libnotify
-      qtox
-      qpwgraph
-      qutebrowser
-      rpi-imager
-      rofi-wayland
-
-      pywal
-      neovide
-      ripdrag
-      mpv
-      sxiv
-      zathura
-      newsboat
       pv
+      pywal
       qbittorrent
-
-      lm_sensors
-      upower
-
-      cm_unicode
-
-      virt-manager
-
-      wezterm
-      kitty
-
-      libreoffice-fresh
-      easyeffects
-      gegl
-      gcc
+      qpwgraph
+      qtox
+      qutebrowser
+      ripdrag
       ripgrep
-      fd
-      cargo
+      rofi-wayland
+      rpi-imager
+      sxiv
+      upower
+      virt-manager
+      wezterm
+      zathura
     ];
 
     myHomeManager.impermanence.cache.directories = [
