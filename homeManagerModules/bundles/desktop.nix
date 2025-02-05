@@ -79,7 +79,7 @@
       adwaita-qt
       ansible
       ansible-language-server
-      bash-bash-language-server
+      bash-language-server
       cargo
       cm_unicode
       easyeffects
