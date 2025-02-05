@@ -78,6 +78,8 @@
     home.packages = with pkgs; [
       adwaita-qt
       ansible
+      ansible-language-server
+      bash-bash-language-server
       cargo
       cm_unicode
       easyeffects
@@ -87,13 +89,16 @@
       gcc
       gegl
       kitty
+      lemminx
       libnotify
       libreoffice-fresh
+      libxml2
       lm_sensors
       lxsession
       mpv
       neovide
       newsboat
+      nodePackages.yaml-language-server
       noisetorch
       pavucontrol
       pcmanfm
