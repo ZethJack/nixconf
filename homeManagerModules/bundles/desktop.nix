@@ -93,6 +93,7 @@
       libxml2
       lm_sensors
       lxsession
+      meld
       mpv
       neovide
       newsboat
