@@ -77,8 +77,6 @@
 
     home.packages = with pkgs; [
       adwaita-qt
-      ansible
-      ansible-language-server
       bash-language-server
       cargo
       cm_unicode

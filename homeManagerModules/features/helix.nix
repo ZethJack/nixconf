@@ -38,11 +38,6 @@
         args = ["--stdio"];
       };
 
-      language-server.ansible = {
-        command = "ansible-language-server";
-        args = ["--stdio"];
-      };
-
       language = [
         {
           name = "nix";
@@ -80,12 +75,6 @@
           file-types = ["yaml" "yml"];
           auto-format = true;
           language-servers = ["yaml"];
-        }
-        {
-          name = "ansible";
-          scope = "source.ansible";
-          file-types = ["yml.ansible" "yaml.ansible"];
-          language-servers = ["ansible"];
         }
       ];
     };
