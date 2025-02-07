@@ -33,7 +33,7 @@
   };
 
   system.name = "hashbrown-nixos";
-  system.nixos.label = "test1";
+  system.nixos.label = "hashbrown";
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -53,8 +53,9 @@
     options kvm_intel emulate_invalid_guest_state=0
     options kvm ignore_msrs=1
   '';
-
+  console.keyMap = "cz-qwertz";
   networking.hostName = "hashbrown";
+  networking.hostFiles = [../hblock];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -67,6 +68,7 @@
       variant = "";
     };
   };
+
   services.libinput.enable = true;
 
   programs.gnupg.agent = {
@@ -75,13 +77,19 @@
     enableSSHSupport = true;
   };
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 10";
+  };
+
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
     # bluetooth.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         vulkan-tools
         vulkan-headers
@@ -110,6 +118,8 @@
     winetricks
   ];
 
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  
   environment.sessionVariables = {
     FLAKE = "$HOME/.local/src/nixconf";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
@@ -122,8 +132,9 @@
   networking.firewall.enable = false;
   services.samba-wsdd.enable = true;
 
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  # xdg.portal.enable = true;
+  xdg.portal.wlr.enable = true;
 
   programs.adb.enable = true;
 
@@ -146,10 +157,6 @@
   services.samba = {
     enable = true;
   };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
 
   # ================================================================ #
   # =                         DO NOT TOUCH                         = #

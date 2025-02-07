@@ -10,8 +10,10 @@
     bundles.desktop.enable = true;
     bundles.gaming.enable = true;
     bundles.desktop-full.enable = true;
+    hypridle.enable = true;
 
     firefox.enable = true;
+    thunderbird.enable = true;
     hyprland.enable = true;
 
     monitors = [
@@ -26,8 +28,6 @@
     ];
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-
   home = {
     stateVersion = "22.11";
     homeDirectory = lib.mkDefault "/home/zeth";
@@ -41,7 +41,7 @@
         {
           extraLibs = pkgs:
             with pkgs; [
-              openssl_1_1
+              openssl
             ];
         })
     ];
