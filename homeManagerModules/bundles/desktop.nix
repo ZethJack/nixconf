@@ -31,15 +31,10 @@
 
     home.file = {
       ".local/share/rofi/rofi-bluetooth".source = "${pkgs.rofi-bluetooth}";
-
-      ".local/share/wal-telegram".source = builtins.fetchGit {
-        url = "https://github.com/guillaumeboehm/wal-telegram";
-        rev = "47e1a18f6d60d08ebaabbbac4b133a6158bacadd";
-      };
     };
 
     qt.enable = true;
-    qt.platformTheme.name = "gtk";
+    qt.platformTheme = "gtk";
     qt.style.name = "adwaita-dark";
 
     home.sessionVariables = {
@@ -49,7 +44,6 @@
     services.udiskie.enable = true;
 
     xdg.mimeApps.defaultApplications = {
-      "text/plain" = ["neovide.desktop"];
       "application/pdf" = ["zathura.desktop"];
       "image/*" = ["imv.desktop"];
       "video/png" = ["mpv.desktop"];
@@ -57,20 +51,10 @@
       "video/*" = ["mpv.desktop"];
     };
 
-    programs.imv = {
-      enable = true;
-      settings = {
-        options.background = "${config.stylix.base16Scheme.base00}";
-      };
-    };
-
     services.mako = {
       enable = true;
-      # backgroundColor = "#${config.stylix.base16Scheme.base01}";
-      # borderColor = "#${config.stylix.base16Scheme.base0E}";
       borderRadius = 5;
       borderSize = 2;
-      # textColor = "#${config.stylix.base16Scheme.base04}";
       defaultTimeout = 10000;
       layer = "overlay";
     };
