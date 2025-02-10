@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+if [ $# -eq 0 ]; then
+  echo "Error: missing path to .mlt file"
+  exit 1
+fi
+
+mlt_file="$1"
+output="${mlt_file%.*}"
+
+melt_command="melt -progress $mlt_file -consumer avformat:$output.mp4 vcodec=libx264 acodec=aac crf=23 ab=384k s=1920x1080 r=30 preset=fast movflags=+faststart vprofile=high"
+
+eval "$melt_command"
