@@ -29,7 +29,7 @@
   };
 
   home = {
-    stateVersion = "22.11";
+    stateVersion = "24.11";
     homeDirectory = lib.mkDefault "/home/zeth";
     username = "zeth";
 

@@ -1,34 +1,57 @@
 {
   pkgs,
+  inputs,
   lib,
   ...
-}: {
-  # stylix.base16Scheme = ./theme.yaml;
-  # stylix.base16Scheme = {
-  #   base00 = "282828"; # ----
-  #   base01 = "3c3836"; # ---
-  #   base02 = "504945"; # --
-  #   base03 = "665c54"; # -
-  #   base04 = "bdae93"; # +
-  #   base05 = "d5c4a1"; # ++
-  #   base06 = "ebdbb2"; # +++
-  #   base07 = "fbf1c7"; # ++++
-  #   base08 = "fb4934"; # red
-  #   base09 = "fe8019"; # orange
-  #   base0A = "fabd2f"; # yellow
-  #   base0B = "b8bb26"; # green
-  #   base0C = "8ec07c"; # aqua/cyan
-  #   base0D = "83a598"; # blue
-  #   base0E = "d3869b"; # purple
-  #   base0F = "d65d0e"; # brown
-  # };
-
-  # stylix.image = ./prism/wallpapers/gruvbox-mountain-village.png;
-
-  # stylix.targets.waybar.enable = false;
-  stylix.targets.rofi.enable = false;
-  stylix.targets.kde.enable = false;
-
-  stylix.autoEnable = true;
-  stylix.enable = true;
+}: let
+  schemeAttr = file:
+    (builtins.fromJSON (builtins.readFile
+      (pkgs.runCommand "json" {} ''
+        ${lib.getExe pkgs.yj} < "${file}" > $out
+      '')
+      .outPath))
+    .palette;
+in {
+  imports = [inputs.stylix.homeManagerModules.stylix];
+  stylix = {
+    enable = true; # Explicitly enable for zeth
+    base16Scheme = schemeAttr "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = ../../nixosModules/features/stylix/gruvbox-mountain-village.png;
+    polarity = "dark"; # Force dark theme (optional, per docs)
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      sizes = {
+        applications = 12;
+        terminal = 10;
+        desktop = 10;
+        popups = 10;
+      };
+    };
+    cursor = {
+      name = "Bibata-Original-Amber";
+      package = pkgs.bibata-cursors;
+      size = 12;
+    };
+    targets = {
+      kitty.enable = true;
+      gtk.enable = true;
+      qt.enable = true;
+      # qt.platform = "gtk";
+      firefox.enable = true;
+      rofi.enable = false;
+      kde.enable = false;
+    };
+    autoEnable = true; # Theme all supported Home Manager targets
+  };
 }

@@ -27,18 +27,18 @@
     myHomeManager.mpv.enable = lib.mkDefault true;
     myHomeManager.ddw.enable = lib.mkDefault true;
 
-    myHomeManager.gtk.enable = lib.mkDefault true;
-
     home.file = {
       ".local/share/rofi/rofi-bluetooth".source = "${pkgs.rofi-bluetooth}";
     };
 
     qt.enable = true;
-    qt.platformTheme.name = "gtk";
-    qt.style.name = "adwaita-dark";
-
-    home.sessionVariables = {
-      QT_STYLE_OVERRIDE = "adwaita-dark";
+    # qt.platformTheme.name = "gtk";
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.papirus-icon-theme;
+        name = "Papirus-Dark";
+      };
     };
 
     services.udiskie.enable = true;
@@ -84,6 +84,7 @@
       nodePackages.yaml-language-server
       noisetorch
       pavucontrol
+      papirus-icon-theme
       pcmanfm
       polkit
       polkit_gnome
@@ -93,6 +94,7 @@
       qbittorrent
       qpwgraph
       qtox
+      libsForQt5.qt5ct
       qutebrowser
       ripdrag
       ripgrep

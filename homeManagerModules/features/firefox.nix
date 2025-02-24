@@ -7,8 +7,8 @@
 }: {
   programs.firefox = {
     enable = true;
-    profiles.yurii = {
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+    profiles.zeth = {
+      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
         ublock-origin
         sponsorblock

@@ -121,13 +121,12 @@
     pciutils
     cifs-utils
     vulkan-tools
-    wineWowPackages.stable
     wineWowPackages.waylandFull
     winetricks
   ];
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-  
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
   environment.sessionVariables = {
     FLAKE = "$HOME/.local/src/nixconf";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
@@ -171,5 +170,5 @@
   # =                         DO NOT TOUCH                         = #
   # ================================================================ #
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.11";
 }
