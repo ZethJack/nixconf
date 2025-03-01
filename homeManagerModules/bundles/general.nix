@@ -59,6 +59,7 @@
     killall
     neovim
     helix
+    hblock
     taskspooler
     gparted
 
