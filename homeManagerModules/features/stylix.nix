@@ -51,6 +51,8 @@ in {
       firefox.enable = true;
       rofi.enable = false;
       kde.enable = false;
+      wpaperd.enable = false;
+      vscode.enable = false;
     };
     autoEnable = true; # Theme all supported Home Manager targets
   };
