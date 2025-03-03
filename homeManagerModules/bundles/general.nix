@@ -82,7 +82,7 @@
     wget
 
     gnupg
-    wofi-pass
+    (wofi-pass.override {extensions = exts: [exts.pass-otp];})
 
     yt-dlp
     tree-sitter
