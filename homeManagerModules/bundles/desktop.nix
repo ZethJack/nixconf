@@ -26,6 +26,7 @@
     myHomeManager.linkhandler.enable = lib.mkDefault true;
     myHomeManager.mpv.enable = lib.mkDefault true;
     myHomeManager.ddw.enable = lib.mkDefault true;
+    myHomeManager.appinstall.enable = lib.mkDefault true;
 
     home.file = {
       ".local/share/rofi/rofi-bluetooth".source = "${pkgs.rofi-bluetooth}";
