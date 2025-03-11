@@ -77,12 +77,6 @@
 
   services.libinput.enable = true;
 
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-gtk2;
-    enableSSHSupport = true;
-  };
-
   programs.nh = {
     enable = true;
     clean.enable = true;
