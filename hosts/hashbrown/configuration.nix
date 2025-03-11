@@ -17,8 +17,11 @@
     ++ (myLib.filesIn ./included);
 
   myNixOS = {
-    bundles.general-desktop.enable = true;
-    bundles.users.enable = true;
+    bundles = {
+      base-system.enable = true;
+      general-desktop.enable = true;
+      users.enable = true;
+    };
 
     sharedSettings.hyprland.enable = true;
     home-users = {
@@ -39,11 +42,14 @@
 
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = false;
-  boot.loader.grub.gfxmodeBios = "1920x1080";
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "/dev/sda";
+      useOSProber = false;
+      gfxmodeBios = "1920x1080";
+    };
+  };
 
   boot.kernelParams = ["quiet" "udev.log_level=3" "nvidia_drm.fbdev=1" "nvidia_drm.modeset=1"];
   boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
@@ -118,8 +124,8 @@
     winetricks
   ];
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-  
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
   environment.sessionVariables = {
     FLAKE = "$HOME/.local/src/nixconf";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";

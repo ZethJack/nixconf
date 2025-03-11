@@ -9,17 +9,17 @@
   hm,
   ...
 }: {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../nixosModules/features/greetd/default.nix
-    ]
-    # ++ (myLib.filesIn ./included);
-    ;
+  imports = [
+    ./hardware-configuration.nix
+    ../../nixosModules/features/greetd/default.nix
+  ];
 
   myNixOS = {
-    bundles.general-desktop.enable = true;
-    bundles.users.enable = true;
+    bundles = {
+      base-system.enable = true;
+      general-desktop.enable = true;
+      users.enable = true;
+    };
 
     sharedSettings.hyprland.enable = true;
     home-users = {
@@ -41,16 +41,12 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   boot.initrd.luks.devices."luks-f094d3af-0ead-4064-aa5d-4b80a24d970c".device = "/dev/disk/by-uuid/f094d3af-0ead-4064-aa5d-4b80a24d970c";
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
 
   boot.kernelParams = ["quiet" "udev.log_level=3"];
   boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
@@ -65,7 +61,6 @@
 
   networking.hostFiles = [../hblock];
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
   services.xserver = {
@@ -94,7 +89,6 @@
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
-    # bluetooth.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -108,7 +102,6 @@
     };
   };
 
-  # hardware.nvidia.modesetting.enable = true;
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   services.printing.enable = true;
@@ -139,36 +132,21 @@
   networking.firewall.enable = false;
   services.samba-wsdd.enable = true;
 
-  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  # xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
 
   programs.adb.enable = true;
 
   virtualisation = {
-    # podman = {
-    #   enable = true;
-    #
-    #   # `docker` alias
-    #   dockerCompat = true;
-    #   defaultNetwork.settings.dns_enabled = true;
-    # };
+    libvirtd.enable = true;
+    docker.enable = true;
   };
-  virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable = true;
-  # virtualisation.docker.enableNvidia = true;
 
-  # services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
   services.flatpak.enable = true;
 
   services.samba = {
     enable = true;
   };
-
-  # ================================================================ #
-  # =                         DO NOT TOUCH                         = #
-  # ================================================================ #
 
   system.stateVersion = "24.11";
 }

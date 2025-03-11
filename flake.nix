@@ -75,26 +75,15 @@
   in
     with myLib; {
       nixosConfigurations = {
-        # ===================== NixOS Configurations ===================== #
-
-        laptop = mkSystem ./hosts/laptop/configuration.nix;
-        work = mkSystem ./hosts/work/configuration.nix;
+        # ===================== Active NixOS Systems ===================== #
         hashbrown = mkSystem ./hosts/hashbrown/configuration.nix;
         potatOS = mkSystem ./hosts/potatOS/configuration.nix;
-        vps = mkSystem ./hosts/vps/configuration.nix;
-        liveiso = mkSystem ./hosts/liveiso/configuration.nix;
       };
 
       homeConfigurations = {
-        # ================ Maintained home configurations ================ #
-
+        # =================== Active Home Configurations ================= #
         "zeth@potatOS" = mkHome "x86_64-linux" ./hosts/potatOS/home.nix;
         "zeth@hashbrown" = mkHome "x86_64-linux" ./hosts/hashbrown/home.nix;
-
-        # ========================= Discontinued ========================= #
-        # This one doesn't work. Left it in case I ever want to use it again
-
-        # "yurii@osxvm" = mkHome "x86_64-darwin" ./hosts/osxvm/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;
