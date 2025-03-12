@@ -1,8 +1,6 @@
 {pkgs, ...}: {
-  programs.chromium.enable = true;
-  programs.chromium.package = pkgs.ungoogled-chromium;
-
-  myHomeManager.impermanence.cache.directories = [
-    ".config/chromium"
-  ];
+  programs.chromium = {
+    enable = true;
+    package = pkgs.ungoogled-chromium;
+  };
 }

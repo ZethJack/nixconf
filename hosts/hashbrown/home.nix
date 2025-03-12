@@ -28,6 +28,13 @@
     ];
   };
 
+  # Explicitly disable swaylock and prevent it from being enabled elsewhere
+  programs.swaylock = {
+    enable = lib.mkForce false;
+    package = lib.mkForce null;
+    settings = lib.mkForce {};
+  };
+
   home = {
     stateVersion = "22.11";
     homeDirectory = lib.mkDefault "/home/zeth";

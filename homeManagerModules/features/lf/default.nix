@@ -132,15 +132,18 @@
   };
 
   programs.zsh.initExtra = let
-    lfColors =
-      map
-      (
-        dir: ''~/${dir}=04;33:''
-      )
-      (config.myHomeManager.impermanence.data.directories);
-
+    lfColors = [
+      "~/Projects=04;33"
+      "~/Downloads=04;33"
+      "~/Documents=04;33"
+      "~/Videos=04;33"
+      "~/.config=04;33"
+      "~/nixconf=04;33"
+      "~/.local/share=04;33"
+      "/run/media=04;33"
+    ];
     lfExport = ''
-      export LF_COLORS="${lib.concatStrings lfColors}"
+      export LF_COLORS="${lib.concatStringsSep ":" lfColors}"
     '';
   in
     lib.mkAfter ''

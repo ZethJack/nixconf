@@ -35,23 +35,50 @@
     cachix.enable = true;
   };
 
-  system.name = "hashbrown-nixos";
-  system.nixos.label = "hashbrown";
+  # System-specific settings
+  system = {
+    name = "hashbrown-nixos";
+    nixos.label = "hashbrown";
+    stateVersion = "23.05";
+  };
+
+  # hashbrown-specific boot configuration
+  boot = {
+    loader = {
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+        useOSProber = false;
+        gfxmodeBios = "1920x1080";
+      };
+    };
+    # hashbrown-specific kernel parameters for NVIDIA
+    kernelParams = ["quiet" "udev.log_level=3" "nvidia_drm.fbdev=1" "nvidia_drm.modeset=1"];
+  };
+
+  # Host-specific settings
+  networking = {
+    hostName = "hashbrown";
+    hostFiles = [../hblock];
+  };
+
+  # hashbrown-specific video drivers and settings
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.modesetting.enable = true;
+
+  # hashbrown-specific nixpkgs path
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
+  # hashbrown-specific packages
+  environment.systemPackages = with pkgs; [
+    wineWowPackages.stable # Additional wine package specific to hashbrown
+  ];
 
   security.sudo.wheelNeedsPassword = false;
 
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader = {
-    grub = {
-      enable = true;
-      device = "/dev/sda";
-      useOSProber = false;
-      gfxmodeBios = "1920x1080";
-    };
-  };
 
-  boot.kernelParams = ["quiet" "udev.log_level=3" "nvidia_drm.fbdev=1" "nvidia_drm.modeset=1"];
   boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
 
   boot.extraModprobeConfig = ''
@@ -60,15 +87,12 @@
     options kvm ignore_msrs=1
   '';
   console.keyMap = "cz-qwertz";
-  networking.hostName = "hashbrown";
-  networking.hostFiles = [../hblock];
 
   # Enable networking
   networking.networkmanager.enable = true;
 
   services.xserver = {
     enable = true;
-    videoDrivers = ["nvidia"];
     xkb = {
       layout = "cz";
       variant = "";
@@ -100,25 +124,12 @@
     };
   };
 
-  hardware.nvidia.modesetting.enable = true;
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   services.printing.enable = true;
   services.ratbagd.enable = true;
   services.usbmuxd.enable = true;
   services.avahi.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    hyprlock
-    pciutils
-    cifs-utils
-    vulkan-tools
-    wineWowPackages.stable
-    wineWowPackages.waylandFull
-    winetricks
-  ];
-
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   environment.sessionVariables = {
     FLAKE = "$HOME/.local/src/nixconf";
@@ -157,10 +168,4 @@
   services.samba = {
     enable = true;
   };
-
-  # ================================================================ #
-  # =                         DO NOT TOUCH                         = #
-  # ================================================================ #
-
-  system.stateVersion = "23.05";
 }

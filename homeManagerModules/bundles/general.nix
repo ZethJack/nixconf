@@ -12,6 +12,13 @@
     };
   };
 
+  # Explicitly disable swaylock at the bundle level
+  programs.swaylock = {
+    enable = lib.mkForce false;
+    package = lib.mkForce null;
+    settings = lib.mkForce {};
+  };
+
   myHomeManager.zsh.enable = lib.mkDefault true;
   myHomeManager.lf.enable = lib.mkDefault true;
   myHomeManager.yazi.enable = lib.mkDefault true;
@@ -97,20 +104,4 @@
   home.sessionVariables = {
     FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
   };
-
-  myHomeManager.impermanence.data.directories = [
-    ".ssh"
-  ];
-
-  myHomeManager.impermanence.cache.directories = [
-    ".local/share/nvim"
-    ".config/nvim"
-    ".config/helix"
-
-    ".ssh"
-  ];
-
-  myHomeManager.impermanence.cache.files = [
-    ".zsh_history"
-  ];
 }

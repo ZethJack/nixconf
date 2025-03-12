@@ -33,20 +33,35 @@
     cachix.enable = true;
   };
 
-  system.name = "potatOS-nixos";
-  system.nixos.label = "potatOS";
-  system.activationScripts.createPersistentStorageDirs.text = ''
-    mkdir -p /persist
-  '';
-
-  security.sudo.wheelNeedsPassword = false;
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  # System-specific settings
+  system = {
+    name = "potatOS-nixos";
+    nixos.label = "potatOS";
+    stateVersion = "24.11";
   };
 
-  boot.initrd.luks.devices."luks-f094d3af-0ead-4064-aa5d-4b80a24d970c".device = "/dev/disk/by-uuid/f094d3af-0ead-4064-aa5d-4b80a24d970c";
+  # potatOS-specific boot configuration
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.luks.devices."luks-f094d3af-0ead-4064-aa5d-4b80a24d970c".device = "/dev/disk/by-uuid/f094d3af-0ead-4064-aa5d-4b80a24d970c";
+  };
+
+  # Host-specific settings
+  networking = {
+    hostName = "potatOS";
+    hostFiles = [../hblock];
+  };
+
+  # potatOS-specific video drivers
+  services.xserver.videoDrivers = ["intel"];
+
+  # potatOS-specific nixpkgs path
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
+  security.sudo.wheelNeedsPassword = false;
 
   boot.kernelParams = ["quiet" "udev.log_level=3"];
   boot.kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
@@ -57,15 +72,10 @@
     options kvm ignore_msrs=1
   '';
   console.keyMap = "cz-qwertz";
-  networking.hostName = "potatOS";
-
-  networking.hostFiles = [../hblock];
 
   networking.networkmanager.enable = true;
 
   services.xserver = {
-    enable = true;
-    videoDrivers = ["intel"];
     xkb = {
       layout = "cz";
       variant = "";
@@ -112,8 +122,6 @@
     winetricks
   ];
 
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-
   environment.sessionVariables = {
     FLAKE = "$HOME/.local/src/nixconf";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
@@ -141,6 +149,4 @@
   services.samba = {
     enable = true;
   };
-
-  system.stateVersion = "24.11";
 }

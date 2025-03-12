@@ -7,13 +7,8 @@
     vesktop
   ];
 
-  myHomeManager.impermanence.cache.directories = [
-    ".config/vesktop"
-  ];
-
   xdg.configFile."vesktop/themes/nix-colors-theme.css" = {
     text = with config.stylix.base16Scheme; ''
-
       .theme-dark {
          --background-primary: #${base01};
          /* background of background of chat window */
@@ -72,7 +67,6 @@
       .peopleList-2VBrVI,
       .content-2hZxGK,
       .header-1zd7se,
-
       .root-g14mjS .small-23Atuv .fullscreenOnMobile-ixj0e3 {
         background-color: var(--background-secondary);
       }
@@ -83,7 +77,6 @@
       .scrollableContainer-2NUZem,
       .perksModalContentWrapper-3RHugb,
       .theme-dark .footer-31IekZ,
-
       .theme-light .footer-31IekZ {
         background-color: var(--background-tertiary);
       }
@@ -95,7 +88,6 @@
       .unreadMentionsBar-1Bu1dC,
       .mention-1f5kbO,
       .active-1SSsBb,
-
       .disableButton-220a9y {
         background-color: var(--ping) !important;
       }
@@ -117,7 +109,6 @@
       .input-2g-os5,
       .input-2z42oC,
       .role-2TIOKu,
-
       .searchBar-jGtisZ {
         border-radius: 6px;
       }

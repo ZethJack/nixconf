@@ -16,30 +16,14 @@
     protonup-ng
     gamemode
     dxvk
-    # parsec-bin
-
     gamescope
-
-    # heroic
     mangohud
-
     r2modman
-
     heroic
-
     er-patcher
     bottles
-
     steamtinkerlaunch
-  ];
-
-  myHomeManager.impermanence.cache.directories = [
-    ".local/share/Steam"
-    ".local/share/bottles"
-    ".config/r2modmanPlus-local"
-
-    "Games"
-
-    ".config/heroic"
+    protonup-qt
+    goverlay
   ];
 }

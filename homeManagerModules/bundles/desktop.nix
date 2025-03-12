@@ -107,9 +107,5 @@
       wezterm
       zathura
     ];
-
-    myHomeManager.impermanence.cache.directories = [
-      ".local/state/wireplumber"
-    ];
   };
 }
