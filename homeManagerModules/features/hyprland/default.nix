@@ -24,7 +24,6 @@
 
   config = {
     myHomeManager.waybar.enable = lib.mkDefault true;
-    myHomeManager.xremap.enable = lib.mkDefault true;
 
     wayland.windowManager.hyprland = {
       enable = true;
