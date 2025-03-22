@@ -38,7 +38,7 @@
         ''${{
             printf "File: "
             read DIR
-            mk $DIR
+            mkdir -p $DIR
         }}
       '';
 
