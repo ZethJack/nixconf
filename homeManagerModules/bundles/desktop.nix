@@ -65,6 +65,7 @@
       bash-language-server
       cargo
       cm_unicode
+      clang-tools
       easyeffects
       element-desktop
       fd
@@ -101,6 +102,7 @@
       ripgrep
       rofi-wayland
       rpi-imager
+      shellharden
       sxiv
       upower
       virt-manager

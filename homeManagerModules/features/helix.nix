@@ -38,6 +38,11 @@
         args = ["--stdio"];
       };
 
+      language-server.clangd = {
+        command = "clangd";
+        args = ["--background-index"];
+      };
+
       language = [
         {
           name = "nix";
@@ -75,6 +80,17 @@
           file-types = ["yaml" "yml"];
           auto-format = true;
           language-servers = ["yaml"];
+        }
+        {
+          name = "cpp";
+          scope = "source.cpp";
+          file-types = ["cpp" "hpp" "h" "cc" "c++"];
+          auto-format = true;
+          language-servers = ["clangd"];
+          indent = {
+            tab-width = 2;
+            unit = "  ";
+          };
         }
       ];
     };
