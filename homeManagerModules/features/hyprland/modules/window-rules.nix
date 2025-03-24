@@ -16,9 +16,9 @@
       "workspace 3 silent,class:^(vesktop)$"
       "workspace 3 silent,class:^(io.github.qtox.qTox)$"
       "workspace 3 silent,class:^(Element)$"
-      
+
       # Force fullscreen for any window on workspace 3
-      "fullscreenstate 2 2,workspace:3"
+      "fullscreenstate 1 1,workspace:3"
     ];
   };
-} 
+}
