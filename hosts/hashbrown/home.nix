@@ -12,8 +12,6 @@
     bundles.desktop-full.enable = true;
     hypridle.enable = true;
 
-    firefox.enable = true;
-    thunderbird.enable = true;
     hyprland.enable = true;
 
     monitors = [

@@ -48,7 +48,6 @@ in {
       gtk.enable = true;
       qt.enable = true;
       # qt.platform = "gtk";
-      firefox.enable = true;
       rofi.enable = false;
       kde.enable = false;
       wpaperd.enable = false;

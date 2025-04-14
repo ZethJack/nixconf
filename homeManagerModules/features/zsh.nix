@@ -158,7 +158,7 @@ in {
     export EDITOR="hx"
     export TERMINAL="alacritty"
     export TERM="alacritty"
-    export BROWSER="firefox"
+    export BROWSER="brave"
     export VIDEO="mpv"
     export IMAGE="imv"
     export OPENER="xdg-open"
