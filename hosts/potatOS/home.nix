@@ -11,6 +11,7 @@
     bundles.gaming.enable = true;
     bundles.desktop-full.enable = true;
     hypridle.enable = true;
+    evolution.enable = true;
 
     hyprland.enable = true;
 
