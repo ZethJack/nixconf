@@ -21,12 +21,13 @@
       users.enable = true;
     };
 
+    hardware-wallets.enable = true;
     sharedSettings.hyprland.enable = true;
     home-users = {
       "zeth" = {
         userConfig = ./home.nix;
         userSettings = {
-          extraGroups = ["libvirtd" "networkmanager" "wheel" "adbusers"];
+          extraGroups = ["libvirtd" "networkmanager" "wheel" "adbusers" "plugdev"];
         };
       };
     };

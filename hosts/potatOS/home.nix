@@ -12,6 +12,7 @@
     bundles.desktop-full.enable = true;
     hypridle.enable = true;
     evolution.enable = true;
+    monero.enable = true;
 
     hyprland.enable = true;
 
