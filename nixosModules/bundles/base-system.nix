@@ -78,6 +78,11 @@
         enable = true;
         pinentryPackage = pkgs.pinentry-gtk2;
         enableSSHSupport = true;
+        settings = {
+          default-cache-ttl = 86400;  # Cache for 24 hours
+          max-cache-ttl = 86400;      # Maximum cache time of 24 hours
+          allow-preset-passphrase = true;
+        };
       };
       nh = {
         enable = true;
