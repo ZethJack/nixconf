@@ -152,6 +152,10 @@ in {
     }
 
     chpwd_functions+=(chpwdf)
+
+    # GnuPG agent configuration
+    export GPG_TTY=$(tty)
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   '';
 
   programs.zsh.envExtra = ''
@@ -165,6 +169,10 @@ in {
     export SCRIPTS="$HOME/scripts"
     export LAUNCHER="rofi -dmenu"
     export FZF_DEFAULT_OPTS="--color=16"
+
+    # GnuPG agent configuration
+    export GPG_TTY=$(tty)
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
     # Less colors
     export LESS_TERMCAP_mb=$'\e[1;32m'

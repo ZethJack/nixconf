@@ -76,11 +76,14 @@
     programs = {
       gnupg.agent = {
         enable = true;
-        pinentryPackage = pkgs.pinentry-gtk2;
         enableSSHSupport = true;
+        enableExtraSocket = true;
+        pinentryPackage = pkgs.pinentry-gtk2;
         settings = {
           default-cache-ttl = 86400;  # Cache for 24 hours
           max-cache-ttl = 86400;      # Maximum cache time of 24 hours
+          default-cache-ttl-ssh = 86400;  # SSH cache for 24 hours
+          max-cache-ttl-ssh = 86400;      # Maximum SSH cache time of 24 hours
           allow-preset-passphrase = true;
         };
       };
@@ -108,6 +111,9 @@
         vulkan-tools
         wineWowPackages.waylandFull
         winetricks
+        gnupg
+        pinentry-gtk2
+        pinentry-curses
       ];
       sessionVariables = {
         FLAKE = "$HOME/.local/src/nixconf";

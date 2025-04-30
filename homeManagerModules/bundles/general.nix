@@ -30,6 +30,7 @@
   myHomeManager.stylix.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
+  };
   programs.git = {
     enable = true;
     userName = "Zeth";
@@ -90,6 +91,8 @@
     wget
 
     gnupg
+    pinentry-gtk2
+    pinentry-curses
     (wofi-pass.override {extensions = exts: [exts.pass-otp];})
 
     yt-dlp
