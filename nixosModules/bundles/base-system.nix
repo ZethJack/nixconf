@@ -80,11 +80,11 @@
         enableExtraSocket = true;
         pinentryPackage = pkgs.pinentry-gtk2;
         settings = {
-          default-cache-ttl = 86400;  # Cache for 24 hours
-          max-cache-ttl = 86400;      # Maximum cache time of 24 hours
-          default-cache-ttl-ssh = 86400;  # SSH cache for 24 hours
-          max-cache-ttl-ssh = 86400;      # Maximum SSH cache time of 24 hours
-          allow-preset-passphrase = true;
+          default-cache-ttl = 86400; # Cache for 24 hours
+          max-cache-ttl = 86400; # Maximum cache time of 24 hours
+          default-cache-ttl-ssh = 86400; # SSH cache for 24 hours
+          max-cache-ttl-ssh = 86400; # Maximum SSH cache time of 24 hours
+          allow-preset-passphrase = "";
         };
       };
       nh = {

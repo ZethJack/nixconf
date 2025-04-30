@@ -37,6 +37,7 @@ in {
     };
 
     home-manager = {
+      backupFileExtension = "bak";
       extraSpecialArgs = {
         inherit inputs;
         inherit myLib;

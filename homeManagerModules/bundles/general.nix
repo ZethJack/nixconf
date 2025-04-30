@@ -30,7 +30,6 @@
   myHomeManager.stylix.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
-  };
   programs.git = {
     enable = true;
     userName = "Zeth";
@@ -50,6 +49,11 @@
   services.syncthing = {
     enable = true;
     tray.enable = false;
+  };
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
   };
 
   home.packages = with pkgs; [
@@ -71,6 +75,7 @@
     hblock
     taskspooler
     gparted
+    (lib.mkForce pinentry-gtk2)
 
     fzf
     htop
@@ -92,7 +97,6 @@
 
     gnupg
     pinentry-gtk2
-    pinentry-curses
     (wofi-pass.override {extensions = exts: [exts.pass-otp];})
 
     yt-dlp
