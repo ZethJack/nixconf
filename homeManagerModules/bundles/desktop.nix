@@ -54,10 +54,12 @@
 
     services.mako = {
       enable = true;
-      borderRadius = 5;
-      borderSize = 2;
-      defaultTimeout = 10000;
-      layer = "overlay";
+      settings = {
+        border-radius = 5;
+        border-size = 2;
+        default-timeout = 10000;
+        layer = "overlay";
+      };
     };
 
     home.packages = with pkgs; [

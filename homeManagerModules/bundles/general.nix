@@ -53,7 +53,11 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
+    pinentry.package = pkgs.pinentry-gtk2;
+    defaultCacheTtl = 86400; # Cache for 24 hours
+    maxCacheTtl = 86400; # Maximum cache time of 24 hours
+    defaultCacheTtlSsh = 86400; # SSH cache for 24 hours
+    maxCacheTtlSsh = 86400; # Maximum SSH cache time of 24 hours
   };
 
   home.packages = with pkgs; [
@@ -75,7 +79,6 @@
     hblock
     taskspooler
     gparted
-    (lib.mkForce pinentry-gtk2)
 
     fzf
     htop
@@ -96,7 +99,6 @@
     wget
 
     gnupg
-    pinentry-gtk2
     (wofi-pass.override {extensions = exts: [exts.pass-otp];})
 
     yt-dlp
@@ -109,6 +111,6 @@
   ];
 
   home.sessionVariables = {
-    FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
+    NH_FLAKE = "${config.home.homeDirectory}/.local/src/nixconf";
   };
 }

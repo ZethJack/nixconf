@@ -41,7 +41,7 @@ in {
     };
   };
 
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     # EXTRACT FUNCTION (needs more nix)
 
     hst() {

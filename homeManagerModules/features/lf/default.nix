@@ -131,7 +131,7 @@
     '';
   };
 
-  programs.zsh.initExtra = let
+  programs.zsh.initContent = let
     lfColors = [
       "~/Projects=04;33"
       "~/Downloads=04;33"
