@@ -20,6 +20,11 @@ in {
     in {
       "$mainMod" = mainMod;
       
+      # Enable cycling through fullscreen windows
+      binds = {
+        movefocus_cycles_fullscreen = true;
+      };
+      
       bind = [
         "$mainMod, return, exec, kitty"
         "$mainMod, Q, killactive,"
