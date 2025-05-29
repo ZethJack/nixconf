@@ -156,6 +156,14 @@ in {
     # GnuPG agent configuration
     export GPG_TTY=$(tty)
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+    # FZF keybindings and completion
+    if [ -f "${pkgs.fzf}/share/fzf/key-bindings.zsh" ]; then
+      source "${pkgs.fzf}/share/fzf/key-bindings.zsh"
+    fi
+    if [ -f "${pkgs.fzf}/share/fzf/completion.zsh" ]; then
+      source "${pkgs.fzf}/share/fzf/completion.zsh"
+    fi
   '';
 
   programs.zsh.envExtra = ''
@@ -187,6 +195,17 @@ in {
     # direnv
     export DIRENV_LOG_FORMAT=""
   '';
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    # Optionally, customize:
+    # defaultCommand = "fd --type f";
+    # defaultOptions = [ "--height 40%" "--border" ];
+    # fileWidgetCommand = "fd --type f";
+    # fileWidgetOptions = [ "--preview 'head {}'" ];
+    # historyWidgetOptions = [ "--sort" "--exact" ];
+  };
 
   home.packages = [
     pimg
