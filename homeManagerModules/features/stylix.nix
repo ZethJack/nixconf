@@ -12,12 +12,12 @@
       .outPath))
     .palette;
 in {
-  imports = [inputs.stylix.homeManagerModules.stylix];
+  imports = [inputs.stylix.homeModules.stylix];
   stylix = {
-    enable = true; # Explicitly enable for zeth
+    enable = true;
     base16Scheme = schemeAttr "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ../../nixosModules/features/stylix/gruvbox-mountain-village.png;
-    polarity = "dark"; # Force dark theme (optional, per docs)
+    polarity = "dark";
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -47,12 +47,11 @@ in {
       kitty.enable = true;
       gtk.enable = true;
       qt.enable = true;
-      # qt.platform = "gtk";
       rofi.enable = false;
       kde.enable = false;
       wpaperd.enable = false;
       vscode.enable = false;
     };
-    autoEnable = true; # Theme all supported Home Manager targets
+    autoEnable = true;
   };
 }
