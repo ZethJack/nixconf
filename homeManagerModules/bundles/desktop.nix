@@ -99,7 +99,6 @@
       qpwgraph
       qtox
       libsForQt5.qt5ct
-      qutebrowser
       ripdrag
       ripgrep
       rofi-wayland
