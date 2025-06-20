@@ -37,13 +37,14 @@
       bottles
       libimobiledevice
       ifuse
-      (unityhub.override
-        {
-          extraLibs = pkgs:
-            with pkgs; [
-              openssl
-            ];
-        })
+      # Temporarily disabled due to gconf/2to3 build issue
+      # (unityhub.override
+      #   {
+      #     extraLibs = pkgs:
+      #       with pkgs; [
+      #         openssl
+      #       ];
+      #   })
     ];
   };
 }
