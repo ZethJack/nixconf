@@ -2,7 +2,7 @@
   pkgs,
   config,
   lib,
-  osConfig,
+  osConfig ? null,
   ...
 }: {
   xdg.configFile."lf/icons".source = ./icons;

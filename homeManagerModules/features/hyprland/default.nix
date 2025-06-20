@@ -3,7 +3,7 @@
   config,
   lib,
   inputs,
-  osConfig,
+  osConfig ? null,
   ...
 }: {
   imports = [
