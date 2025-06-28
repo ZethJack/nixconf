@@ -188,8 +188,8 @@
       adwaita-qt
       bash-language-server
       cargo
-      cm_unicode
       clang-tools
+      cm_unicode
       easyeffects
       element-desktop
       fd
@@ -200,17 +200,19 @@
       lemminx
       libnotify
       libreoffice-fresh
+      libsForQt5.qt5ct
       libxml2
       lm_sensors
       lxsession
       meld
       mpv
+      ncdu
       neovide
       newsboat
       nodePackages.yaml-language-server
       noisetorch
-      pavucontrol
       papirus-icon-theme
+      pavucontrol
       pcmanfm
       polkit
       polkit_gnome
@@ -220,7 +222,6 @@
       qbittorrent
       qpwgraph
       qtox
-      libsForQt5.qt5ct
       ripdrag
       ripgrep
       rofi-wayland
