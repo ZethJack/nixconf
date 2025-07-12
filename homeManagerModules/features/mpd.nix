@@ -148,7 +148,7 @@
     musicDirectory = "/home/zeth/Music";
     extraConfig = ''
       # Prevent playback restoration after restart
-      restore_paused "no"
+      restore_paused "yes"
       
       # Audio output
       audio_output {
