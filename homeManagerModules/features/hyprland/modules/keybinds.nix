@@ -85,6 +85,17 @@ in {
         "$mainMod SHIFT, aacute, movetoworkspace, 8"
         "$mainMod SHIFT, iacute, movetoworkspace, 9"
         "$mainMod SHIFT, eacute, movetoworkspace, 10"
+
+        # MPD Controls
+        "$mainMod, p, exec, mpc toggle"
+        ", XF86AudioPlay, exec, mpc toggle"
+        "$mainMod SHIFT, p, exec, mpc stop"
+        ", XF86AudioStop, exec, mpc stop"
+        "$mainMod, comma, exec, mpc prev"
+        ", XF86AudioPrev, exec, mpc prev"
+        "$mainMod, period, exec, mpc next"
+        ", XF86AudioNext, exec, mpc next"
+        "$mainMod, m, exec, kitty -e ncmpcpp"
       ];
 
       binde = [

@@ -121,6 +121,7 @@
     vulkan-tools
     wineWowPackages.waylandFull
     winetricks
+    mpc
   ];
 
   environment.sessionVariables = {
@@ -149,5 +150,37 @@
 
   services.samba = {
     enable = true;
+  };
+
+  # Custom MPD package without io_uring to resolve build issues
+  nixpkgs.overlays = [
+    (final: prev: {
+      mpd = prev.mpd.overrideAttrs (oldAttrs: {
+        buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.pkg-config ];
+        mesonFlags = (oldAttrs.mesonFlags or []) ++ [ "-Dio_uring=disabled" ];
+      });
+    })
+  ];
+
+  services.mpd = {
+    enable = false;
+    musicDirectory = "/home/zeth/Music";
+    user = "zeth";
+    extraConfig = ''
+      audio_output {
+        type "null"
+        name "Null Output"
+      }
+      auto_update "yes"
+      follow_inside_symlinks "yes"
+      follow_outside_symlinks "no"
+      max_output_buffer_size "16384"
+      max_playlist_length "16384"
+      metadata_to_use "artist,album,title,track,name,genre,date,composer,performer,disc"
+      replaygain "auto"
+      replaygain_preamp "0"
+      replaygain_missing_preamp "0"
+      replaygain_limit "yes"
+    '';
   };
 }

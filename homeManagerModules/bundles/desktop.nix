@@ -25,6 +25,7 @@
     myHomeManager.grimslurp.enable = lib.mkDefault true;
     myHomeManager.linkhandler.enable = lib.mkDefault true;
     myHomeManager.mpv.enable = lib.mkDefault true;
+    myHomeManager.mpd.enable = lib.mkDefault true;
     myHomeManager.ddw.enable = lib.mkDefault true;
     myHomeManager.appinstall.enable = lib.mkDefault true;
 
@@ -74,12 +75,12 @@
         "video/quicktime" = ["mpv.desktop"];
         
         # Audio
-        "audio/*" = ["mpv.desktop"];
-        "audio/mpeg" = ["mpv.desktop"];
-        "audio/mp3" = ["mpv.desktop"];
-        "audio/ogg" = ["mpv.desktop"];
-        "audio/wav" = ["mpv.desktop"];
-        "audio/flac" = ["mpv.desktop"];
+        "audio/*" = ["ncmpcpp.desktop"];
+        "audio/mpeg" = ["ncmpcpp.desktop"];
+        "audio/mp3" = ["ncmpcpp.desktop"];
+        "audio/ogg" = ["ncmpcpp.desktop"];
+        "audio/wav" = ["ncmpcpp.desktop"];
+        "audio/flac" = ["ncmpcpp.desktop"];
         
         # Text files
         "text/plain" = ["helix.desktop"];

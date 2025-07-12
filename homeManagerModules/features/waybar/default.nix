@@ -33,6 +33,7 @@
       "network"
       "bluetooth"
       "pulseaudio#microphone"
+      "custom/mpd"
       # "custom/battery"
       "clock"
       "tray"
@@ -179,6 +180,19 @@
     tray = {
       icon-size = 15;
       spacing = 5;
+    };
+
+    "custom/mpd" = {
+      exec = "${scripts.mpd}/bin/script";
+      format = "  {}";
+      interval = 1;
+      tooltip = true;
+      tooltip-format = "MPD: {tooltip}";
+      on-click = "mpc toggle";
+      on-click-middle = "ncmpcpp";
+      on-click-right = "mpc stop";
+      on-scroll-down = "mpc prev";
+      on-scroll-up = "mpc next";
     };
   };
 
@@ -348,6 +362,12 @@
     }
 
     #tray {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    #custom-mpd {
+        color: @green_1;
         padding-left: 4px;
         padding-right: 4px;
     }

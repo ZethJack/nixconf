@@ -5,6 +5,14 @@
   lib,
   ...
 }: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      mpd = prev.mpd.overrideAttrs (oldAttrs: {
+        buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.pkg-config ];
+        mesonFlags = (oldAttrs.mesonFlags or []) ++ [ "-Dio_uring=disabled" ];
+      });
+    })
+  ];
   myHomeManager = {
     bundles.general.enable = true;
     bundles.desktop.enable = true;
