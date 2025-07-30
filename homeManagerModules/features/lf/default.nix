@@ -17,7 +17,7 @@
         &{{
             case $(file --mime-type -bL -- "$f") in
                 text/*|application/json)
-                    lf -remote "send $id \$$EDITOR \$fx" ;;
+                    lf -remote "send $id ${lib.getExe pkgs.helix} \$fx" ;;
                 image/*)
                     ${lib.getExe pkgs.imv} "$fx" ;;
                 audio/*)
@@ -27,13 +27,13 @@
                 application/pdf|application/epub+zip)
                     ${lib.getExe pkgs.zathura} "$f" ;;
                 *)
-                    lf -remote "send $id \$$EDITOR \$fx" ;;
+                    lf -remote "send $id ${lib.getExe pkgs.helix} \$fx" ;;
             esac
         }}
       '';
       drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
-      editor-open = ''$$EDITOR "$f"'';
-      edit-dir = ''$$EDITOR .'';
+      editor-open = ''${lib.getExe pkgs.helix} "$f"'';
+      edit-dir = ''${lib.getExe pkgs.helix} .'';
       mkdirfile = ''
         ''${{
             printf "File: "

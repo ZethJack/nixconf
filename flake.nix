@@ -68,14 +68,12 @@
     with myLib; {
       nixosConfigurations = {
         # ===================== Active NixOS Systems ===================== #
-        hashbrown = mkSystem ./hosts/hashbrown/configuration.nix;
         potatOS = mkSystem ./hosts/potatOS/configuration.nix;
       };
 
       homeConfigurations = {
         # =================== Active Home Configurations ================= #
         "zeth@potatOS" = mkHome "x86_64-linux" ./hosts/potatOS/home.nix;
-        "zeth@hashbrown" = mkHome "x86_64-linux" ./hosts/hashbrown/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;

@@ -9,7 +9,7 @@ Changes that were introduced so far are very opinionated and might break the cur
 
 
 ## Changes I've introduced so far
-  - Introduced new host configuration - **hasbrown** for my desktop and **potatOS** for my lenovo thinkpad X220.
+  - Introduced new host configuration - **potatOS** for my lenovo thinkpad X220.
   - adjusted locales to cs_CZ-UTF-8 and modified keyboard layout accordingly
   - replaced SDDM display manager with TUI-based greetd as SDDM has tendency to break in some occasions. This however introduced new issues - namely when trying to "logout" out of hyprland session
   - added and removed some programs to suit personal preferences
@@ -19,7 +19,7 @@ Changes that were introduced so far are very opinionated and might break the cur
  - [ ] replace nix-colors with stylix - refer to upstream fork
  - [ ] add configs for newsboat - needs yt-dlp, ffmpeg and mpv so I can download vids, convert to audio and store as podcasts 
  - [ ] add email client - preferably neomutt, but I am open to alternatives depending on how annoying it will be to configure
- - [ ] add scripts for virtual audiosinks on hashbrown - so I can route output to multiple devices (speakers and headphones) at once
+
    - [ ] look into niceboy microphone support, maybe try different distro to verify - for some reason I get no input what so ever
  - [ ] add music player - mpv and ncmpcpp
 
