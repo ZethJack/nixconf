@@ -76,7 +76,7 @@
         "zeth@potatOS" = mkHome "x86_64-linux" ./hosts/potatOS/home.nix;
       };
 
-      homeManagerModules.default = ./homeManagerModules;
+      homeModules.default = ./homeManagerModules;
       nixosModules.default = ./nixosModules;
     };
 }

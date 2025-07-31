@@ -23,6 +23,11 @@ in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
+    history = {
+      path = ".config/zsh/.zsh_history";
+      size = 10000;
+      save = 10000;
+    };
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
       mkd = "mkdir -pv";

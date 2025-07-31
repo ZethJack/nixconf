@@ -25,7 +25,7 @@
     myHomeManager.grimslurp.enable = lib.mkDefault true;
     myHomeManager.linkhandler.enable = lib.mkDefault true;
     myHomeManager.mpv.enable = lib.mkDefault true;
-    myHomeManager.mpd.enable = lib.mkDefault true;
+    # myHomeManager.mpd.enable = lib.mkDefault true;  # Temporarily disabled due to ncmpcpp build issues
     myHomeManager.ddw.enable = lib.mkDefault true;
     myHomeManager.appinstall.enable = lib.mkDefault true;
 

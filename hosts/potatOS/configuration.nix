@@ -122,6 +122,23 @@
     wineWowPackages.waylandFull
     winetricks
     mpc
+    # GameMode and gaming tools
+    gamemode
+    mangohud
+    goverlay
+    # Create GameMode status indicator script
+    (pkgs.writeShellScriptBin "gamemode-status" ''
+      #!/bin/bash
+      # GameMode status indicator
+      
+      if gamemoded -s | grep -q "gamemode is active"; then
+          echo "🎮 GameMode: ACTIVE"
+          exit 0
+      else
+          echo "🎮 GameMode: INACTIVE"
+          exit 1
+      fi
+    '')
   ];
 
   environment.sessionVariables = {
@@ -152,35 +169,98 @@
     enable = true;
   };
 
-  # Custom MPD package without io_uring to resolve build issues
-  nixpkgs.overlays = [
-    (final: prev: {
-      mpd = prev.mpd.overrideAttrs (oldAttrs: {
-        buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.pkg-config ];
-        mesonFlags = (oldAttrs.mesonFlags or []) ++ [ "-Dio_uring=disabled" ];
-      });
-    })
-  ];
-
-  services.mpd = {
-    enable = false;
-    musicDirectory = "/home/zeth/Music";
-    user = "zeth";
-    extraConfig = ''
-      audio_output {
-        type "null"
-        name "Null Output"
-      }
-      auto_update "yes"
-      follow_inside_symlinks "yes"
-      follow_outside_symlinks "no"
-      max_output_buffer_size "16384"
-      max_playlist_length "16384"
-      metadata_to_use "artist,album,title,track,name,genre,date,composer,performer,disc"
-      replaygain "auto"
-      replaygain_preamp "0"
-      replaygain_missing_preamp "0"
-      replaygain_limit "yes"
-    '';
+  # GameMode configuration for improved gaming performance
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = {
+      general = {
+        # CPU governor settings
+        cpu_governor = "performance";
+        # I/O priority settings
+        ioprio = "1";
+        # Process niceness
+        nice = "-10";
+        # Kernel scheduler
+        kernel_scheduler = "1";
+        # Screensaver inhibiting
+        inhibit_screensaver = "1";
+        # GPU performance mode
+        gpu_performance_mode = "1";
+        # GPU overclocking (NVIDIA only)
+        gpu_overclock = "0";
+        # Soft real-time scheduling
+        softrealtime = "auto";
+        # Renice GPU processes
+        renice = "10";
+      };
+      # GPU-specific settings
+      gpu = {
+        # NVIDIA GPU settings
+        nvidia_drm_modeset = "1";
+        nvidia_persistenced = "1";
+        nvidia_power_management = "1";
+        # AMD GPU settings
+        amd_performance_level = "high";
+        amd_power_dpm_force_performance_level = "high";
+        # Intel GPU settings
+        intel_gpu_frequency = "1";
+      };
+      # Custom environment variables
+      custom = {
+        # Vulkan settings for better performance
+        VK_LAYER_NV_optimus = "NVIDIA_only";
+        __GL_SYNC_TO_VBLANK = "0";
+        __GL_THREADED_OPTIMIZATIONS = "1";
+        __GL_YIELD = "NOTHING";
+        # Mesa settings
+        MESA_GL_VERSION_OVERRIDE = "4.5";
+        MESA_GLSL_VERSION_OVERRIDE = "450";
+        MESA_GLTHREAD = "1";
+        # Wine/Proton optimizations
+        WINEDLLOVERRIDES = "dxgi=n";
+        DXVK_HUD = "0";
+        DXVK_STATE_CACHE = "1";
+        # Steam optimizations
+        STEAM_RUNTIME = "1";
+        STEAM_GAMEMODE = "1";
+        # General gaming optimizations
+        SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
+        SDL_VIDEO_WINDOW_POS = "0,0";
+        SDL_VIDEO_CENTERED = "0";
+      };
+    };
   };
+
+  # Add GameMode to user groups for proper permissions
+  users.users.zeth.extraGroups = ["gamemode"];
+
+  # Configure Steam with GameMode integration
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    extraCompatPackages = with pkgs; [
+      gamemode
+      mangohud
+      goverlay
+    ];
+  };
+
+  # Configure GameMode for Lutris
+  environment.sessionVariables = {
+    # Enable GameMode for Lutris games
+    LUTRIS_GAMEMODE = "1";
+  };
+
+  # Configure GameMode for better performance with specific games
+  environment.variables = {
+    # Enable GameMode for Steam games
+    STEAM_GAMEMODE = "1";
+    # Enable GameMode for Wine/Proton games
+    WINE_GAMEMODE = "1";
+    # Enable GameMode for native Linux games
+    GAMEMODE_RUN = "1";
+  };
+
+  # MPD is handled by Home Manager, no need for system-level configuration
 }
