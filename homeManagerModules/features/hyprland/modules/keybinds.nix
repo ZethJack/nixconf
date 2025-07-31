@@ -96,6 +96,13 @@ in {
         "$mainMod, period, exec, mpc next"
         ", XF86AudioNext, exec, mpc next"
         "$mainMod, m, exec, kitty -e ncmpcpp"
+        
+        # Additional ncmpcpp controls
+        "$mainMod SHIFT, m, exec, kitty -e ncmpc"
+        "$mainMod, minus, exec, mpc volume -5"
+        "$mainMod, equal, exec, mpc volume +5"
+        ", XF86AudioRaiseVolume, exec, mpc volume +5"
+        ", XF86AudioLowerVolume, exec, mpc volume -5"
       ];
 
       binde = [

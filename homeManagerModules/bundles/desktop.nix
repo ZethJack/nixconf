@@ -75,12 +75,12 @@
         "video/quicktime" = ["mpv.desktop"];
         
         # Audio
-        "audio/*" = ["ncmpc.desktop"];
-        "audio/mpeg" = ["ncmpc.desktop"];
-        "audio/mp3" = ["ncmpc.desktop"];
-        "audio/ogg" = ["ncmpc.desktop"];
-        "audio/wav" = ["ncmpc.desktop"];
-        "audio/flac" = ["ncmpc.desktop"];
+        "audio/*" = ["ncmpcpp.desktop"];
+        "audio/mpeg" = ["ncmpcpp.desktop"];
+        "audio/mp3" = ["ncmpcpp.desktop"];
+        "audio/ogg" = ["ncmpcpp.desktop"];
+        "audio/wav" = ["ncmpcpp.desktop"];
+        "audio/flac" = ["ncmpcpp.desktop"];
         
         # Text files
         "text/plain" = ["helix.desktop"];
