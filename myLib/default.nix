@@ -31,7 +31,7 @@ in rec {
       };
       modules = [
         config
-        outputs.homeManagerModules.default
+        outputs.homeModules.default
       ];
     };
 
