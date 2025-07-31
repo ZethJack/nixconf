@@ -38,8 +38,11 @@
     };
   };
 
-  # Add ncmpcpp as a pre-built package to avoid compilation issues
+  # Add alternative MPD clients that don't have Boost compilation issues
   home.packages = with pkgs; [
-    ncmpcpp
+    ncmpc        # Curses-based MPD client (replaces ncmpcpp)
+    mpc          # Minimalist command line interface to MPD
+    miniplayer   # Curses-based MPD client with album art support
+    # ncmpcpp    # Temporarily disabled due to Boost compilation issues
   ];
 } 

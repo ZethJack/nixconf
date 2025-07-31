@@ -25,7 +25,7 @@
     myHomeManager.grimslurp.enable = lib.mkDefault true;
     myHomeManager.linkhandler.enable = lib.mkDefault true;
     myHomeManager.mpv.enable = lib.mkDefault true;
-    # myHomeManager.mpd.enable = lib.mkDefault true;  # Temporarily disabled due to ncmpcpp Boost compilation issues in flake context
+    myHomeManager.mpd.enable = lib.mkDefault true;  # Re-enabled with alternative clients (ncmpc, mpc, miniplayer)
     myHomeManager.ddw.enable = lib.mkDefault true;
     myHomeManager.appinstall.enable = lib.mkDefault true;
 
@@ -75,12 +75,12 @@
         "video/quicktime" = ["mpv.desktop"];
         
         # Audio
-        "audio/*" = ["ncmpcpp.desktop"];
-        "audio/mpeg" = ["ncmpcpp.desktop"];
-        "audio/mp3" = ["ncmpcpp.desktop"];
-        "audio/ogg" = ["ncmpcpp.desktop"];
-        "audio/wav" = ["ncmpcpp.desktop"];
-        "audio/flac" = ["ncmpcpp.desktop"];
+        "audio/*" = ["ncmpc.desktop"];
+        "audio/mpeg" = ["ncmpc.desktop"];
+        "audio/mp3" = ["ncmpc.desktop"];
+        "audio/ogg" = ["ncmpc.desktop"];
+        "audio/wav" = ["ncmpc.desktop"];
+        "audio/flac" = ["ncmpc.desktop"];
         
         # Text files
         "text/plain" = ["helix.desktop"];
