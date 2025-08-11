@@ -17,7 +17,7 @@
         &{{
             case $(file --mime-type -bL -- "$f") in
                 text/*|application/json)
-                    lf -remote "send $id ${lib.getExe pkgs.helix} \$fx" ;;
+                    hx "$fx" ;;
                 image/*)
                     ${lib.getExe pkgs.imv} "$fx" ;;
                 audio/*)
@@ -27,13 +27,13 @@
                 application/pdf|application/epub+zip)
                     ${lib.getExe pkgs.zathura} "$f" ;;
                 *)
-                    lf -remote "send $id ${lib.getExe pkgs.helix} \$fx" ;;
+                    hx "$fx" ;;
             esac
         }}
       '';
       drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
-      editor-open = ''${lib.getExe pkgs.helix} "$f"'';
-      edit-dir = ''${lib.getExe pkgs.helix} .'';
+      editor-open = ''hx "$f"'';
+      edit-dir = ''hx .'';
       mkdirfile = ''
         ''${{
             printf "File: "
@@ -124,6 +124,7 @@
       # set cleaner ''${pkgs.ctpv}/bin/ctpvclear
       set cleaner ${cleaner}/bin/clean.sh
       set previewer ${pkgs.ctpv}/bin/ctpv
+      set editor "hx"
       cmd stripspace %stripspace "$f"
       setlocal ~/Projects sortby time
       setlocal ~/Projects/* sortby time
