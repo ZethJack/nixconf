@@ -106,6 +106,7 @@
     brave
     syncthing
     wavemon
+    aria2
 
     nh
   ];
